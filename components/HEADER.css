@@ -1,67 +1,116 @@
 /* ============================
-   Announcement Bar (Fixed Top)
+   Announcement Bar (Responsive)
    ============================ */
 .announcement-bar {
-  background-color: #d8ecff;
-  position: fixed;
+  position: absolute;                   /* Fix to top of page */
   top: 0;
+  left: 0;
   width: 100%;
-  height: 22px;
+  background-color: #d8ecff;           /* Light blue background */
   overflow: hidden;
   white-space: nowrap;
-  z-index: 9999;
   border-bottom: 1px solid #cfd8e2;
+  padding: 6px 0;
+  text-align: center;
+  z-index: 1000;
 }
 
 .announcement-text {
   display: inline-block;
-  padding-top: 2px;
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: #003366;
   animation: scroll-left 15s linear infinite;
+  color: #003366;
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.4;
+  padding-left: 100%; /* Start scrolling from the right */
 }
 
 @keyframes scroll-left {
-  0%   { transform: translateX(100%); }
+  0% { transform: translateX(0%); }
   100% { transform: translateX(-100%); }
 }
 
-/* Add spacing to push content below fixed announcement */
+@media (min-width: 768px) {
+  .announcement-text {
+    font-size: 1rem;
+  }
+
+  .announcement-bar {
+    padding: 8px 0;
+  }
+}
+
+
+/* ============================
+   Header Layout
+   ============================ */
 .site-header {
-  margin-top: 22px; /* Equal to .announcement-bar height */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 16px;
+  padding: 14px 16px;
   background-color: white;
   border-bottom: 1px solid #ddd;
+  position: relative;
+  margin-top: 36px; /* Space for announcement bar */
+  z-index: 999;
+}
+
+.header-left,
+.header-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.header-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
 }
 
 .logo {
   height: 45px;
 }
 
-.icon {
-  height: 28px;
+/* ============================
+   Share Button
+   ============================ */
+#shareBtn {
   background: none;
   border: none;
-  cursor: pointer;
   padding: 0;
+  margin: 0;
+  cursor: pointer;
 }
 
+#shareBtn .icon {
+  height: 28px;
+}
+
+
+/* ============================
+   Hamburger Menu
+   ============================ */
 .hamburger {
   font-size: 24px;
   background: none;
   border: none;
   cursor: pointer;
+  margin-left: auto;
+  padding: 0;
+  z-index: 1001;
 }
 
+
+/* ============================
+   Navigation Menu
+   ============================ */
 #navMenu {
   display: none;
   flex-direction: column;
   position: absolute;
-  top: 70px;
+  top: 100%;
   right: 16px;
   background: white;
   border: 1px solid #ccc;
