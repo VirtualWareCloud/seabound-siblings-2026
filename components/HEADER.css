@@ -8,7 +8,7 @@
   border-bottom: 1px solid #cfd8e2;  /* Adds subtle bottom border */
   height: 20px;                      /* Slim bar height */
   line-height: 16px;                 /* Controls vertical alignment of text */
-  padding-top: 2px;                  /* Push text slightly downward */
+  padding-top: 1px;                  /* Push text slightly downward */
   padding-bottom: 0;                 /* No extra bottom space */
   text-align: center;                /* Horizontal alignment */
 }
