@@ -1,6 +1,7 @@
+/* FOOTER.css */
 .site-footer {
-  background: #f5f9ff;
-  padding: 1rem;
+  background-color: #f2f2f2;
+  padding: 20px 10px;
   text-align: center;
   border-top: 1px solid #ccc;
 }
@@ -9,8 +10,8 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1rem;
-  margin-bottom: 0.5rem;
+  gap: 16px;
+  margin-bottom: 10px;
 }
 
 .footer-icons img {
@@ -20,16 +21,20 @@
 }
 
 .footer-icons img:hover {
-  transform: scale(1.2);
+  transform: scale(1.15);
 }
 
 .footer-credit {
-  font-size: 0.75rem;
-  color: #444;
+  font-size: 14px;
+  color: #555;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
 }
 
-.footer-logo {
+.footer-credit img {
   height: 16px;
+  width: auto;
   vertical-align: middle;
-  margin: 0 4px;
 }
