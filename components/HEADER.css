@@ -1,0 +1,82 @@
+/* Base Header Styling */
+.main-header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
+  font-family: 'Segoe UI', sans-serif;
+  z-index: 1000;
+  position: relative;
+  width: 100%;
+}
+
+/* Announcement Bar */
+.announcement-bar {
+  text-align: center;
+  padding: 10px 16px;
+  font-size: 0.95rem;
+  color: #222;
+  background: #ffffff;
+}
+
+/* Main Header Row */
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+}
+
+/* Share Button */
+#shareBtn img {
+  width: 28px;
+  height: 28px;
+}
+
+#shareBtn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* Logo */
+.main-header a img {
+  height: 50px;
+  max-width: 100%;
+}
+
+/* Hamburger Menu */
+.hamburger {
+  font-size: 26px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+
+/* Dropdown Navigation (Mobile) */
+.nav-links {
+  display: none;
+  flex-direction: column;
+  text-align: center;
+  background-color: #ffffff;
+  border-top: 1px solid #e0e0e0;
+  padding: 12px 0;
+}
+
+.nav-links a {
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #222;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.nav-links a:hover {
+  background-color: #f2f2f2;
+}
+
+/* Active Toggle */
+.nav-links.active {
+  display: flex;
+}
