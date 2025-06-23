@@ -1,26 +1,34 @@
 // components/HEADER.js
-fetch('./components/HEADER.html')
-  .then(res => res.text())
-  .then(data => {
-    document.getElementById('header-container').innerHTML = data;
-  });
 
-function toggleMenu() {
-  const menu = document.getElementById('navMenu');
-  menu.classList.toggle('active');
-}
+// Native Share API with fallback
+document.addEventListener("DOMContentLoaded", () => {
+  const shareBtn = document.getElementById("shareBtn");
 
-document.addEventListener('DOMContentLoaded', () => {
-  const shareBtn = document.getElementById('shareBtn');
-  if (navigator.share) {
-    shareBtn.addEventListener('click', () => {
-      navigator.share({
-        title: 'Seabound Siblings',
-        text: 'Support Jess & Mel in the Atlantic Row 2026!',
-        url: window.location.href,
-      });
+  if (shareBtn) {
+    shareBtn.addEventListener("click", async () => {
+      if (navigator.share) {
+        try {
+          await navigator.share({
+            title: "Seabound Siblings | World's Toughest Row",
+            text: "Support Jess & Mel as they row across the Atlantic in the World’s Toughest Row!",
+            url: window.location.href,
+          });
+        } catch (err) {
+          console.error("Sharing failed:", err);
+        }
+      } else {
+        alert("Your browser doesn't support native sharing. Please copy the link manually.");
+      }
     });
-  } else {
-    shareBtn.style.display = 'none';
+  }
+
+  // Hamburger Menu Toggle
+  const hamburger = document.querySelector(".hamburger");
+  const navMenu = document.getElementById("navMenu");
+
+  if (hamburger && navMenu) {
+    hamburger.addEventListener("click", () => {
+      navMenu.classList.toggle("active");
+    });
   }
 });
