@@ -1,21 +1,12 @@
 <!-- components/HEADER.html -->
 
 <!-- ============================
-     Announcement Bar
-     ============================ -->
-<div class="announcement-bar">
-  <p class="announcement-text">
-    🌊 Jess & Mel’s 2026 Atlantic Row — Fuel the Impossible. Be Part of the Challenge. 💪
-  </p>
-</div>
-
-<!-- ============================
-     Site Header
+     Site Header (No Announcement Bar)
      ============================ -->
 <header class="site-header">
   <div class="header-left">
     <!-- Share Button -->
-    <button id="shareBtn">
+    <button id="shareBtn" aria-label="Share this page">
       <img src="./icons/share_button_seabound.svg" alt="Share" class="icon" />
     </button>
   </div>
@@ -27,7 +18,7 @@
 
   <div class="header-right">
     <!-- Hamburger Menu -->
-    <button class="hamburger" onclick="toggleMenu()">☰</button>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle navigation menu">☰</button>
     <nav id="navMenu">
       <a href="index.html">Home</a>
       <a href="story.html">Story</a>
