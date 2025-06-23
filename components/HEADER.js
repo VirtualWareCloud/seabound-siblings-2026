@@ -1,24 +1,17 @@
-<!-- Optional: Place this in header.js or inside a <script> tag -->
-<script>
-  // Toggle mobile menu
-  document.getElementById('hamburgerBtn').addEventListener('click', () => {
-    const nav = document.getElementById('mobileNav');
-    nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
-  });
+function toggleMenu() {
+  const menu = document.getElementById('navMenu');
+  menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+}
 
-  // Share functionality
-  document.getElementById('shareBtn').addEventListener('click', async () => {
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title: document.title,
-          url: window.location.href
-        });
-      } catch (err) {
-        alert('Sharing failed or canceled.');
-      }
-    } else {
-      alert('Sharing is not supported on this device. Please copy the URL.');
-    }
-  });
-</script>
+document.getElementById("shareBtn").addEventListener("click", async () => {
+  const shareData = {
+    title: "Seabound Siblings – World's Toughest Row",
+    text: "Support Jess & Mel as they row across the Atlantic!",
+    url: window.location.href
+  };
+  try {
+    await navigator.share(shareData);
+  } catch (err) {
+    alert("Share not supported. Copy the link: " + window.location.href);
+  }
+});
