@@ -2,41 +2,34 @@
    Announcement Bar (Fixed Top)
    ============================ */
 .announcement-bar {
-  position: fixed;                     /* Fixes bar to the top */
+  background-color: #d8ecff;
+  position: fixed;
   top: 0;
-  left: 0;
   width: 100%;
-  z-index: 9999;                       /* Ensures it's above everything */
-  background-color: #d8ecff;           /* Light blue background */
-  overflow: hidden;                    /* Hides overflow */
-  white-space: nowrap;                 /* Prevents text wrapping */
-  border-bottom: 1px solid #cfd8e2;    /* Subtle bottom border */
-  height: 20px;                        /* Slim height */
-  line-height: 16px;                   /* Aligns text vertically */
-  padding-top: 2px;                    /* Small top padding */
-  padding-bottom: 0;                   /* No bottom padding */
-  text-align: center;                  /* Centered text */
+  height: 22px;
+  overflow: hidden;
+  white-space: nowrap;
+  z-index: 9999;
+  border-bottom: 1px solid #cfd8e2;
 }
 
 .announcement-text {
-  display: inline-block;                          /* Enables animation */
-  animation: scroll-left 15s linear infinite;     /* Horizontal scrolling animation */
-  color: #003366;                                 /* Navy blue text */
-  font-size: 0.7rem;                              /* Smaller font size */
+  display: inline-block;
+  padding-top: 2px;
+  font-size: 0.75rem;
   font-weight: 500;
-  vertical-align: top;                            /* Aligns text to top */
+  color: #003366;
+  animation: scroll-left 15s linear infinite;
 }
 
 @keyframes scroll-left {
-  0% { transform: translateX(100%); }
+  0%   { transform: translateX(100%); }
   100% { transform: translateX(-100%); }
 }
 
-/* ============================
-   Header Structure
-   ============================ */
+/* Add spacing to push content below fixed announcement */
 .site-header {
-  margin-top: 20px;                    /* Push header below fixed announcement bar */
+  margin-top: 22px; /* Equal to .announcement-bar height */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -45,35 +38,10 @@
   border-bottom: 1px solid #ddd;
 }
 
-/* Left Section (Share Button) */
-.header-left {
-  flex: 1;
-  display: flex;
-  align-items: center;
-}
-
-/* Center Section (Logo) */
-.header-center {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-}
-
 .logo {
   height: 45px;
 }
 
-/* Right Section (Hamburger Menu) */
-.header-right {
-  flex: 1;
-  display: flex;
-  justify-content: flex-end;         /* Ensures menu is on the far right */
-  align-items: center;
-}
-
-/* ============================
-   Share Button
-   ============================ */
 .icon {
   height: 28px;
   background: none;
@@ -82,9 +50,6 @@
   padding: 0;
 }
 
-/* ============================
-   Hamburger Menu Button
-   ============================ */
 .hamburger {
   font-size: 24px;
   background: none;
@@ -92,9 +57,6 @@
   cursor: pointer;
 }
 
-/* ============================
-   Mobile Navigation Menu
-   ============================ */
 #navMenu {
   display: none;
   flex-direction: column;
