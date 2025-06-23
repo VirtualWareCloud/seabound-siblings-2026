@@ -1,82 +1,54 @@
-/* Base Header Styling */
-.main-header {
-  background-color: #ffffff;
-  border-bottom: 1px solid #e5e5e5;
-  font-family: 'Segoe UI', sans-serif;
-  z-index: 1000;
-  position: relative;
-  width: 100%;
-}
-
-/* Announcement Bar */
 .announcement-bar {
+  background-color: #e6f0fa;
+  color: #002d5a;
   text-align: center;
-  padding: 10px 16px;
-  font-size: 0.95rem;
-  color: #222;
-  background: #ffffff;
+  font-weight: bold;
+  font-size: 0.85rem;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
-/* Main Header Row */
-.header-content {
+.typewriter {
+  display: inline-block;
+  animation: scroll-left 12s linear infinite;
+}
+
+@keyframes scroll-left {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+.site-header {
+  background: #ffffff;
+  padding: 0.7rem 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 20px;
+  border-bottom: 1px solid #ccc;
 }
 
-/* Share Button */
-#shareBtn img {
-  width: 28px;
-  height: 28px;
+.logo {
+  height: 40px;
 }
 
-#shareBtn {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-}
-
-/* Logo */
-.main-header a img {
-  height: 50px;
-  max-width: 100%;
-}
-
-/* Hamburger Menu */
 .hamburger {
-  font-size: 26px;
+  font-size: 24px;
   background: none;
   border: none;
-  cursor: pointer;
-  padding: 0;
-  line-height: 1;
 }
 
-/* Dropdown Navigation (Mobile) */
-.nav-links {
+#navMenu {
   display: none;
   flex-direction: column;
-  text-align: center;
-  background-color: #ffffff;
-  border-top: 1px solid #e0e0e0;
-  padding: 12px 0;
 }
 
-.nav-links a {
-  padding: 10px 20px;
+#navMenu a {
+  color: #002d5a;
   text-decoration: none;
-  color: #222;
-  font-size: 1rem;
-  transition: background 0.3s ease;
+  padding: 0.5rem;
 }
 
-.nav-links a:hover {
-  background-color: #f2f2f2;
-}
-
-/* Active Toggle */
-.nav-links.active {
-  display: flex;
+.icon {
+  height: 24px;
+  cursor: pointer;
 }
