@@ -1,7 +1,11 @@
 // components/HEADER.js
 
-// Native Share API with fallback
+// Wait for DOM to fully load before running scripts
 document.addEventListener("DOMContentLoaded", () => {
+
+  // ============================
+  // Native Share Button Handler
+  // ============================
   const shareBtn = document.getElementById("shareBtn");
 
   if (shareBtn) {
@@ -22,7 +26,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // ============================
   // Hamburger Menu Toggle
+  // ============================
   const hamburger = document.querySelector(".hamburger");
   const navMenu = document.getElementById("navMenu");
 
@@ -31,4 +37,5 @@ document.addEventListener("DOMContentLoaded", () => {
       navMenu.classList.toggle("active");
     });
   }
+
 });
