@@ -1,47 +1,120 @@
 /* ============================
-   Announcement Bar (Now fixed to top, mobile-friendly)
+   Announcement Bar (Fixed Top)
    ============================ */
 .announcement-bar {
-  position: fixed;                     /* ✅ Keeps the bar stuck at the top */
-  top: 0;                              /* ✅ Attach to very top of the screen */
+  position: fixed;                     /* Fixes bar to the top */
+  top: 0;
   left: 0;
   width: 100%;
-  z-index: 9999;                       /* ✅ Ensures it's above header/logo */
-
-  background-color: #d8ecff;          /* Light blue background for contrast */
-  overflow: hidden;                   /* Hides overflowed scrolling text */
-  white-space: nowrap;                /* Prevents text from wrapping */
-  border-bottom: 1px solid #cfd8e2;   /* Adds subtle bottom border */
-  height: 20px;                       /* Slim bar height */
-  line-height: 16px;                  /* Controls vertical alignment of text */
-  padding-top: 2px;                   /* Push text slightly downward */
-  padding-bottom: 0;                  /* No extra bottom space */
-  text-align: center;                 /* Horizontal alignment */
+  z-index: 9999;                       /* Ensures it's above everything */
+  background-color: #d8ecff;           /* Light blue background */
+  overflow: hidden;                    /* Hides overflow */
+  white-space: nowrap;                 /* Prevents text wrapping */
+  border-bottom: 1px solid #cfd8e2;    /* Subtle bottom border */
+  height: 20px;                        /* Slim height */
+  line-height: 16px;                   /* Aligns text vertically */
+  padding-top: 2px;                    /* Small top padding */
+  padding-bottom: 0;                   /* No bottom padding */
+  text-align: center;                  /* Centered text */
 }
 
-/* ============================
-   Scrolling Text inside Bar
-   ============================ */
 .announcement-text {
   display: inline-block;                          /* Enables animation */
-  animation: scroll-left 15s linear infinite;     /* Leftward scroll */
+  animation: scroll-left 15s linear infinite;     /* Horizontal scrolling animation */
   color: #003366;                                 /* Navy blue text */
-  font-size: 0.7rem;                              /* Small font */
+  font-size: 0.7rem;                              /* Smaller font size */
   font-weight: 500;
-  vertical-align: top;                            /* Force top alignment */
+  vertical-align: top;                            /* Aligns text to top */
 }
 
-/* ============================
-   Scroll Animation Keyframes
-   ============================ */
 @keyframes scroll-left {
   0% { transform: translateX(100%); }
   100% { transform: translateX(-100%); }
 }
 
 /* ============================
-   Header Adjustment (Pushed down)
+   Header Structure
    ============================ */
 .site-header {
-  margin-top: 20px;                  /* ✅ Prevents header from being hidden under the fixed bar */
+  margin-top: 20px;                    /* Push header below fixed announcement bar */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background-color: white;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Left Section (Share Button) */
+.header-left {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+/* Center Section (Logo) */
+.header-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.logo {
+  height: 45px;
+}
+
+/* Right Section (Hamburger Menu) */
+.header-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;         /* Ensures menu is on the far right */
+  align-items: center;
+}
+
+/* ============================
+   Share Button
+   ============================ */
+.icon {
+  height: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* ============================
+   Hamburger Menu Button
+   ============================ */
+.hamburger {
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* ============================
+   Mobile Navigation Menu
+   ============================ */
+#navMenu {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 70px;
+  right: 16px;
+  background: white;
+  border: 1px solid #ccc;
+  padding: 12px;
+  z-index: 999;
+}
+
+#navMenu a {
+  text-decoration: none;
+  color: #004b8d;
+  padding: 8px 0;
+  display: block;
+  font-weight: 500;
+}
+
+#navMenu.active {
+  display: flex;
 }
