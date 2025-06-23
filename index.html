@@ -1,130 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SafeHavenTech – Top Smart Home Cameras</title>
-  <link rel="icon" href="favicon.ico">
-  <link rel="stylesheet" href="css/styles.css">
-  <script defer src="js/scripts.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Seabound Siblings take on the World's Toughest Row - Discover the challenge, support, and follow our journey!" />
+  <title>Seabound Siblings | World's Toughest Row</title>
+  <link rel="icon" href="./icons/seabound_favicon_2026.ico" type="image/x-icon">
+  <link rel="stylesheet" href="./components/HEADER.css">
+  <link rel="stylesheet" href="./components/FOOTER.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #ffffff;
+      color: #1a1a1a;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(to bottom right, #e6f7ff, #ffffff);
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      color: #002f4b;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto 30px;
+      color: #444;
+    }
+
+    .hero video {
+      width: 90%;
+      max-width: 800px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+
+    .hero video:hover {
+      transform: scale(1.02);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 <body>
-  <div class="announcement-bar">🚨 Latest deals on smart security cameras!</div>
-  <header class="fade-in">
-    <div class="header-row-1">
-      <button class="share-button">Share Website</button>
-      <img src="images/logo.png" alt="SafeHavenTech logo" class="logo">
-      <div class="hamburger">☰</div>
-    </div>
-    <div class="header-row-2">
-      <h1>SafeHavenTech</h1>
-    </div>
-    <div class="separator"></div>
-  </header>
 
-  <main>
-    <section id="products" class="fade-in">
-      <h2>Featured Smart Cameras</h2>
-      <div class="product-grid">
+  <!-- Reusable Header -->
+  <div id="header-container"></div>
 
-        <div class="product-card">
-          <img src="https://via.placeholder.com/300x200?text=EZVIZ+H1C+1080p" alt="EZVIZ H1C 1080p">
-          <h3>EZVIZ H1C 1080p</h3>
-          <p>High-definition smart security camera. Motion detection, night vision & cloud support.</p>
-          <a href="#" target="_blank" rel="nofollow noopener" class="buy-button">Buy on Amazon</a>
-        </div>
-    
-        <div class="product-card">
-          <img src="https://via.placeholder.com/300x200?text=Home+HD+1080P+Outdoor" alt="Home HD 1080P Outdoor">
-          <h3>Home HD 1080P Outdoor</h3>
-          <p>High-definition smart security camera. Motion detection, night vision & cloud support.</p>
-          <a href="#" target="_blank" rel="nofollow noopener" class="buy-button">Buy on Amazon</a>
-        </div>
-    
-        <div class="product-card">
-          <img src="https://via.placeholder.com/300x200?text=Hikvision+2MP+Bullet" alt="Hikvision 2MP Bullet">
-          <h3>Hikvision 2MP Bullet</h3>
-          <p>High-definition smart security camera. Motion detection, night vision & cloud support.</p>
-          <a href="#" target="_blank" rel="nofollow noopener" class="buy-button">Buy on Amazon</a>
-        </div>
-    
-        <div class="product-card">
-          <img src="https://via.placeholder.com/300x200?text=Xiaomi+C200" alt="Xiaomi C200">
-          <h3>Xiaomi C200</h3>
-          <p>High-definition smart security camera. Motion detection, night vision & cloud support.</p>
-          <a href="#" target="_blank" rel="nofollow noopener" class="buy-button">Buy on Amazon</a>
-        </div>
-    
-        <div class="product-card">
-          <img src="https://via.placeholder.com/300x200?text=Tapo+C201+Pan/Tilt" alt="Tapo C201 Pan/Tilt">
-          <h3>Tapo C201 Pan/Tilt</h3>
-          <p>High-definition smart security camera. Motion detection, night vision & cloud support.</p>
-          <a href="#" target="_blank" rel="nofollow noopener" class="buy-button">Buy on Amazon</a>
-        </div>
-    
-        <div class="product-card">
-          <img src="https://via.placeholder.com/300x200?text=Eufy+C220+2K" alt="Eufy C220 2K">
-          <h3>Eufy C220 2K</h3>
-          <p>High-definition smart security camera. Motion detection, night vision & cloud support.</p>
-          <a href="#" target="_blank" rel="nofollow noopener" class="buy-button">Buy on Amazon</a>
-        </div>
-    
-        <div class="product-card">
-          <img src="https://via.placeholder.com/300x200?text=EZVIZ+H1C+1080p+(Dup)" alt="EZVIZ H1C 1080p (Dup)">
-          <h3>EZVIZ H1C 1080p (Dup)</h3>
-          <p>High-definition smart security camera. Motion detection, night vision & cloud support.</p>
-          <a href="#" target="_blank" rel="nofollow noopener" class="buy-button">Buy on Amazon</a>
-        </div>
-    
-        <div class="product-card">
-          <img src="https://via.placeholder.com/300x200?text=Outdoor+IP+Cam+(Dup)" alt="Outdoor IP Cam (Dup)">
-          <h3>Outdoor IP Cam (Dup)</h3>
-          <p>High-definition smart security camera. Motion detection, night vision & cloud support.</p>
-          <a href="#" target="_blank" rel="nofollow noopener" class="buy-button">Buy on Amazon</a>
-        </div>
-    
-        <div class="product-card">
-          <img src="https://via.placeholder.com/300x200?text=Hikvision+Bullet+(Dup)" alt="Hikvision Bullet (Dup)">
-          <h3>Hikvision Bullet (Dup)</h3>
-          <p>High-definition smart security camera. Motion detection, night vision & cloud support.</p>
-          <a href="#" target="_blank" rel="nofollow noopener" class="buy-button">Buy on Amazon</a>
-        </div>
-    
-        <div class="product-card">
-          <img src="https://via.placeholder.com/300x200?text=Xiaomi+C200+(Dup)" alt="Xiaomi C200 (Dup)">
-          <h3>Xiaomi C200 (Dup)</h3>
-          <p>High-definition smart security camera. Motion detection, night vision & cloud support.</p>
-          <a href="#" target="_blank" rel="nofollow noopener" class="buy-button">Buy on Amazon</a>
-        </div>
-    
-        <div class="product-card">
-          <img src="https://via.placeholder.com/300x200?text=Tapo+C201+(Dup)" alt="Tapo C201 (Dup)">
-          <h3>Tapo C201 (Dup)</h3>
-          <p>High-definition smart security camera. Motion detection, night vision & cloud support.</p>
-          <a href="#" target="_blank" rel="nofollow noopener" class="buy-button">Buy on Amazon</a>
-        </div>
-    
-        <div class="product-card">
-          <img src="https://via.placeholder.com/300x200?text=Eufy+C220+(Dup)" alt="Eufy C220 (Dup)">
-          <h3>Eufy C220 (Dup)</h3>
-          <p>High-definition smart security camera. Motion detection, night vision & cloud support.</p>
-          <a href="#" target="_blank" rel="nofollow noopener" class="buy-button">Buy on Amazon</a>
-        </div>
-    
-      </div>
-    </section>
-  </main>
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Seabound Siblings vs. The World's Toughest Row</h1>
+    <p>Join our incredible journey as we row across the Atlantic in the world’s toughest endurance challenge. Follow, support, and become a part of this epic adventure!</p>
+    <video controls autoplay muted loop>
+      <source src="./vids/landing_page_vid.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </section>
 
-  <footer class="fade-in">
-    <div class="contact-icons">
-      <a href="mailto:contact@safehaventech.com">📧 Email</a>
-    </div>
-    <div class="social-icons">
-      <a href="#">👍 Facebook</a>
-      <a href="#">🐦 Twitter</a>
-      <a href="#">📸 Instagram</a>
-    </div>
-    <p>&copy; 2025 SafeHavenTech. All rights reserved.</p>
-  </footer>
+  <!-- Reusable Footer -->
+  <div id="footer-container"></div>
+
+  <script src="./components/HEADER.js"></script>
+  <script src="./components/FOOTER.js"></script>
 </body>
 </html>
