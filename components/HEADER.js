@@ -1,10 +1,8 @@
 // components/HEADER.js
 
-// Wait for DOM to fully load before running scripts
 document.addEventListener("DOMContentLoaded", () => {
-
   // ============================
-  // Native Share Button Handler
+  // Share Button (Native API)
   // ============================
   const shareBtn = document.getElementById("shareBtn");
 
@@ -37,5 +35,4 @@ document.addEventListener("DOMContentLoaded", () => {
       navMenu.classList.toggle("active");
     });
   }
-
 });
