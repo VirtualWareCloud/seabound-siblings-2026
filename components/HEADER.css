@@ -6,7 +6,7 @@
   overflow: hidden;                  /* Prevents overflow */
   white-space: nowrap;              /* Keeps text in one line */
   border-bottom: 1px solid #cfd8e2;  /* Subtle border for separation */
-  padding: 2px 0;                    /* Thinner padding */
+  padding: 3px 0;                    /* Thinner padding */
   height: 20px;                      /* Reduced height for slim appearance */
   text-align: center;
 }
