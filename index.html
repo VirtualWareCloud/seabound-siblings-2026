@@ -16,6 +16,7 @@
       color: #1a1a1a;
     }
 
+    /* Announcement Bar */
     .announcement-bar {
       background-color: #e0eaff;
       overflow: hidden;
@@ -122,6 +123,11 @@
 </head>
 <body>
 
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <p>🌊 Fuel the Impossible: Jess & Mel's Atlantic Row 2026</p>
+  </div>
+
   <!-- Reusable Header -->
   <div id="header-container"></div>
 
@@ -130,7 +136,7 @@
     <h1>Seabound Siblings vs. The World's Toughest Row</h1>
     <p>Join our incredible journey as we row across the Atlantic in the world’s toughest endurance challenge. Follow, support, and become a part of this epic adventure!</p>
     <video controls autoplay muted loop playsinline>
-      <source src="vids/landing_page_vid.mp4" type="video/mp4" />
+      <source src="https://raw.githubusercontent.com/VirtualWareCloud/seabound-siblings-2026/main/vids/landing_page_vid.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
   </section>
@@ -156,14 +162,13 @@
   <!-- Reusable Footer -->
   <div id="footer-container"></div>
 
-  <!-- JS to Load Header and Footer -->
+  <!-- Load Components -->
   <script>
     async function loadComponent(id, file) {
       const res = await fetch(file);
       const html = await res.text();
       document.getElementById(id).innerHTML = html;
     }
-
     loadComponent("header-container", "./components/HEADER.html");
     loadComponent("footer-container", "./components/FOOTER.html");
   </script>
