@@ -1,20 +1,26 @@
-// HEADER.js
+// components/HEADER.js
+fetch('./components/HEADER.html')
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById('header-container').innerHTML = data;
+  });
+
 function toggleMenu() {
-  const menu = document.getElementById("navMenu");
-  menu.classList.toggle("show");
+  const menu = document.getElementById('navMenu');
+  menu.classList.toggle('active');
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  const shareBtn = document.getElementById("shareBtn");
-  shareBtn?.addEventListener("click", async () => {
-    try {
-      await navigator.share({
-        title: "Seabound Siblings",
-        text: "Join Jess & Mel on their Atlantic Rowing Adventure!",
+document.addEventListener('DOMContentLoaded', () => {
+  const shareBtn = document.getElementById('shareBtn');
+  if (navigator.share) {
+    shareBtn.addEventListener('click', () => {
+      navigator.share({
+        title: 'Seabound Siblings',
+        text: 'Support Jess & Mel in the Atlantic Row 2026!',
         url: window.location.href,
       });
-    } catch (err) {
-      console.log("Share failed:", err.message);
-    }
-  });
+    });
+  } else {
+    shareBtn.style.display = 'none';
+  }
 });
