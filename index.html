@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,86 +14,95 @@
       font-family: 'Segoe UI', sans-serif;
       background: #f2f6fa;
       color: #1a1a1a;
-    }.hero {
-  text-align: center;
-  padding: 60px 20px;
-  background: linear-gradient(to bottom right, #003366, #006699);
-  color: white;
-}
+    }
 
-.hero h1 {
-  font-size: 2.8rem;
-  margin-bottom: 15px;
-  animation: fadeIn 1s ease-in-out;
-}
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(to bottom right, #003366, #006699);
+      color: white;
+    }
 
-.hero p {
-  font-size: 1.2rem;
-  max-width: 800px;
-  margin: 0 auto 30px;
-  color: #e0e0e0;
-}
+    .hero h1 {
+      font-size: 2.8rem;
+      margin-bottom: 15px;
+      animation: fadeIn 1s ease-in-out;
+    }
 
-.hero video {
-  width: 90%;
-  max-width: 800px;
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s;
-}
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto 30px;
+      color: #e0e0e0;
+    }
 
-.hero video:hover {
-  transform: scale(1.02);
-}
+    .hero video {
+      width: 90%;
+      max-width: 800px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s;
+    }
 
-.cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  padding: 40px 20px;
-  background-color: #ffffff;
-}
+    .hero video:hover {
+      transform: scale(1.02);
+    }
 
-.card {
-  background: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  width: 280px;
-  padding: 20px;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 40px 20px;
+      background-color: #ffffff;
+    }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
+    .card {
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 280px;
+      padding: 20px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
 
-.card h3 {
-  margin-top: 0;
-  color: #002f4b;
-}
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
 
-.card p {
-  color: #444;
-  font-size: 0.95rem;
-}
+    .card h3 {
+      margin-top: 0;
+      color: #002f4b;
+    }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+    .card p {
+      color: #444;
+      font-size: 0.95rem;
+    }
 
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
-<body>  <!-- Reusable Header -->  <div id="header-container"></div>  <!-- Hero Section -->  <section class="hero">
+<body>
+  <!-- Reusable Header -->
+  <div id="header-container"></div>
+
+  <!-- Hero Section -->
+  <section class="hero">
     <h1>Seabound Siblings vs. The World's Toughest Row</h1>
     <p>Join our incredible journey as we row across the Atlantic in the world’s toughest endurance challenge. Follow, support, and become a part of this epic adventure!</p>
     <video controls autoplay muted loop>
       <source src="./vids/landing_page_vid.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
-  </section>  <!-- Info Cards Section -->  <section class="cards">
+  </section>
+
+  <!-- Info Cards Section -->
+  <section class="cards">
     <div class="card">
       <h3>Meet Jess & Mel</h3>
       <p>Two determined sisters from Spain setting out to conquer the Atlantic while raising awareness and funds for an incredible cause.</p>
@@ -105,5 +115,12 @@
       <h3>Support Us</h3>
       <p>Your support helps fund our boat, gear, nutrition, travel, and essential safety equipment. Every donation brings us closer to the starting line.</p>
     </div>
-  </section>  <!-- Reusable Footer -->  <div id="footer-container"></div>  <script src="./components/HEADER.js"></script>  <script src="./components/FOOTER.js"></script></body>
+  </section>
+
+  <!-- Reusable Footer -->
+  <div id="footer-container"></div>
+
+  <script src="./components/HEADER.js"></script>
+  <script src="./components/FOOTER.js"></script>
+</body>
 </html>
