@@ -1,1 +1,6 @@
 
+/components/
+  ├── HEADER.html     ✅
+  ├── HEADER.css      ✅
+  ├── HEADER.js       ✅
+  └── components.txt  ✅ (doc/reference)
