@@ -1,44 +1,19 @@
-<!-- header.html -->
-<header class="main-header" style="background-color: #ffffff; border-bottom: 1px solid #e5e5e5; padding: 0;">
+<div class="announcement-bar">
+  <p class="typewriter">Jess & Mel: Atlantic Row Challenge 2026 🌊</p>
+</div>
 
-  <!-- 🔔 Announcement Bar -->
-  <div class="announcement-bar" style="text-align: center; padding: 8px 16px; font-size: 0.95rem; color: #222;">
-    Jess & Mel’s Atlantic Row – Support Our Journey!
-  </div>
-
-  <!-- Separator -->
-  <hr style="margin: 0; border: none; border-top: 1px solid #e0e0e0;" />
-
-  <!-- 🧭 Main Header Row -->
-  <div class="header-content" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 16px;">
-
-    <!-- 🔗 Share Button (Left) -->
-    <button id="shareBtn" aria-label="Share this website" style="background: none; border: none; padding: 0; cursor: pointer;">
-      <img src="icons/share_button_seabound.svg" alt="Share" style="width: 28px; height: 28px;" />
-    </button>
-
-    <!-- 🖼️ Logo (Center) -->
-    <a href="index.html" style="display: inline-block;">
-      <img src="images/logo.png" alt="Seabound Siblings Logo" style="height: 50px; max-width: 100%;" />
-    </a>
-
-    <!-- ☰ Hamburger Menu (Right) -->
-    <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation"
-      style="font-size: 24px; background: none; border: none; cursor: pointer;">
-      ☰
-    </button>
-
-  </div>
-
-  <!-- 🌐 Navigation Links (Dropdown) -->
-  <nav id="mobileNav" class="nav-links" style="display: none; flex-direction: column; text-align: center; background-color: #ffffff; padding: 10px 0;">
-    <a href="index.html">🏠 Home</a>
-    <a href="story.html">💘 Our Story</a>
-    <a href="details.html">📍 Event Details</a>
-    <a href="gallery.html">📸 Gallery</a>
-    <a href="rsvp.html">📬 RSVP</a>
-    <a href="invest.html">💼 Invest</a>
+<header class="site-header">
+  <img src="./icons/seabound_favicon_2026.ico" alt="Logo" class="logo" />
+  <button id="shareBtn">
+    <img src="./icons/share_button_seabound.svg" alt="Share" class="icon" />
+  </button>
+  <button class="hamburger" onclick="toggleMenu()">☰</button>
+  <nav id="navMenu">
+    <a href="index.html">Home</a>
+    <a href="story.html">Story</a>
+    <a href="details.html">Details</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="rsvp.html">RSVP</a>
+    <a href="invest.html">Invest</a>
   </nav>
-
 </header>
-
