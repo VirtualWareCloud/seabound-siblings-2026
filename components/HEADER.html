@@ -1,25 +1,28 @@
-<!-- HEADER.html -->
+<!-- components/HEADER.html -->
 <div class="announcement-bar">
-  <p class="typewriter">
-    🌊 Fuel the Impossible: Jess & Mel's Atlantic Row 2026
-  </p>
+  <span>🌊 Fuel the Impossible: Jess & Mel's Atlantic Row 2026</span>
 </div>
 
 <header class="site-header">
-  <img src="./icons/seabound_favicon_2026.ico" alt="Logo" class="logo" />
-
-  <button id="shareBtn" aria-label="Share">
-    <img src="./icons/share_button_seabound.svg" alt="Share" class="icon" />
-  </button>
-
-  <button class="hamburger" onclick="toggleMenu()">☰</button>
-
-  <nav id="navMenu" class="hidden">
-    <a href="index.html">Home</a>
-    <a href="story.html">Story</a>
-    <a href="details.html">Details</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="rsvp.html">RSVP</a>
-    <a href="invest.html">Invest</a>
-  </nav>
+  <div class="header-left">
+    <button id="shareBtn">
+      <img src="./icons/share_button_seabound.svg" alt="Share" class="icon" />
+    </button>
+  </div>
+  
+  <div class="header-center">
+    <img src="./images/logo.png" alt="Seabound Logo" class="logo" />
+  </div>
+  
+  <div class="header-right">
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+    <nav id="navMenu">
+      <a href="index.html">Home</a>
+      <a href="story.html">Story</a>
+      <a href="details.html">Details</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="rsvp.html">RSVP</a>
+      <a href="invest.html">Invest</a>
+    </nav>
+  </div>
 </header>
