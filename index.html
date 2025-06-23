@@ -16,26 +16,26 @@
       color: #1a1a1a;
     }
 
-    /* Typewriter Announcement Bar */
     .announcement-bar {
       background-color: #e0eaff;
       overflow: hidden;
       white-space: nowrap;
       border-bottom: 1px solid #ccc;
-      padding: 6px 0;
+      padding: 5px 0;
+      text-align: center;
     }
 
-    .announcement-bar span {
+    .announcement-bar p {
       display: inline-block;
-      padding-left: 100%;
       animation: scroll-left 15s linear infinite;
-      color: #003366;
+      color: #002f5e;
       font-weight: 500;
-      font-size: 0.85rem;
+      font-size: 0.9rem;
+      margin: 0;
     }
 
     @keyframes scroll-left {
-      0% { transform: translateX(0); }
+      0% { transform: translateX(100%); }
       100% { transform: translateX(-100%); }
     }
 
@@ -65,7 +65,7 @@
       border-radius: 16px;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
       transition: transform 0.3s;
-      background: #000; /* fallback */
+      background: #000;
     }
 
     .hero video:hover {
@@ -85,7 +85,7 @@
       background: #ffffff;
       border-radius: 10px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      border: 0.5px solid #a3c8e8;
+      border: 0.5px solid #cfd8e2;
       width: 280px;
       padding: 20px;
       transition: transform 0.3s, box-shadow 0.3s;
@@ -122,11 +122,6 @@
 </head>
 <body>
 
-  <!-- Announcement Bar -->
-  <div class="announcement-bar">
-    <span>🌊 Jess & Mel row the Atlantic – Support the Seabound Siblings in the World's Toughest Row!</span>
-  </div>
-
   <!-- Reusable Header -->
   <div id="header-container"></div>
 
@@ -135,7 +130,7 @@
     <h1>Seabound Siblings vs. The World's Toughest Row</h1>
     <p>Join our incredible journey as we row across the Atlantic in the world’s toughest endurance challenge. Follow, support, and become a part of this epic adventure!</p>
     <video controls autoplay muted loop playsinline>
-      <source src="./vids/landing_page_vid.mp4" type="video/mp4" />
+      <source src="vids/landing_page_vid.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
   </section>
@@ -161,6 +156,17 @@
   <!-- Reusable Footer -->
   <div id="footer-container"></div>
 
+  <!-- JS to Load Header and Footer -->
+  <script>
+    async function loadComponent(id, file) {
+      const res = await fetch(file);
+      const html = await res.text();
+      document.getElementById(id).innerHTML = html;
+    }
+
+    loadComponent("header-container", "./components/HEADER.html");
+    loadComponent("footer-container", "./components/FOOTER.html");
+  </script>
   <script src="./components/HEADER.js"></script>
   <script src="./components/FOOTER.js"></script>
 
