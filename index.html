@@ -60,7 +60,8 @@
     .card {
       background: #ffffff;
       border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border: 1px solid #ddd;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
       width: 280px;
       padding: 20px;
       transition: transform 0.3s, box-shadow 0.3s;
@@ -68,7 +69,7 @@
 
     .card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     }
 
     .card h3 {
@@ -88,6 +89,7 @@
   </style>
 </head>
 <body>
+
   <!-- Reusable Header -->
   <div id="header-container"></div>
 
@@ -117,10 +119,21 @@
     </div>
   </section>
 
-  <!-- Reusable Footer  -->
+  <!-- Reusable Footer -->
   <div id="footer-container"></div>
 
-  <script src="./components/HEADER.js"></script>
-  <script src="./components/FOOTER.js"></script>
+  <!-- Inject Header and Footer -->
+  <script>
+    // Load HEADER.html
+    fetch("./components/HEADER.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("header-container").innerHTML = data);
+
+    // Load FOOTER.html
+    fetch("./components/FOOTER.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("footer-container").innerHTML = data);
+  </script>
+
 </body>
 </html>
