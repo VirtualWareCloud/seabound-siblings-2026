@@ -1,13 +1,27 @@
-/* components/HEADER.css */
+/* Announcement Bar */
 .announcement-bar {
   background-color: #d8ecff;
-  padding: 4px 0;
+  overflow: hidden;
+  white-space: nowrap;
+  border-bottom: 1px solid #cfd8e2;
+  padding: 5px 0;
   text-align: center;
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: #004b8d;
 }
 
+.announcement-text {
+  display: inline-block;
+  animation: scroll-left 15s linear infinite;
+  color: #003366;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+@keyframes scroll-left {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+/* Header layout */
 .site-header {
   display: flex;
   justify-content: space-between;
@@ -33,46 +47,44 @@
   height: 45px;
 }
 
+/* Share Button */
 .icon {
   height: 28px;
   background: none;
   border: none;
   cursor: pointer;
+  padding: 0;
 }
 
+/* Hamburger Menu */
 .hamburger {
-  font-size: 22px;
+  font-size: 24px;
   background: none;
   border: none;
   cursor: pointer;
-  margin-left: auto;
 }
 
+/* Navigation */
 #navMenu {
-  display: flex;
-  gap: 16px;
-  margin-left: 20px;
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 70px;
+  right: 16px;
+  background: white;
+  border: 1px solid #ccc;
+  padding: 12px;
+  z-index: 999;
 }
 
 #navMenu a {
   text-decoration: none;
   color: #004b8d;
+  padding: 8px 0;
+  display: block;
   font-weight: 500;
 }
 
-@media (max-width: 768px) {
-  #navMenu {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 70px;
-    right: 20px;
-    background: white;
-    border: 1px solid #ccc;
-    padding: 10px;
-  }
-
-  #navMenu.active {
-    display: flex;
-  }
+#navMenu.active {
+  display: flex;
 }
