@@ -1,127 +1,47 @@
 /* ============================
-   Announcement Bar
+   Announcement Bar (Now fixed to top, mobile-friendly)
    ============================ */
 .announcement-bar {
-  background-color: #d8ecff;         /* Light blue background for contrast */
-  overflow: hidden;                  /* Hides overflowed scrolling text */
-  white-space: nowrap;               /* Prevents text from wrapping */
-  border-bottom: 1px solid #cfd8e2;  /* Adds subtle bottom border */
-  height: 20px;                      /* Slim bar height */
-  line-height: 16px;                 /* Controls vertical alignment of text */
-  padding-top: 1px;                  /* Push text slightly downward */
-  padding-bottom: 0;                 /* No extra bottom space */
-  text-align: center;                /* Horizontal alignment */
+  position: fixed;                     /* ✅ Keeps the bar stuck at the top */
+  top: 0;                              /* ✅ Attach to very top of the screen */
+  left: 0;
+  width: 100%;
+  z-index: 9999;                       /* ✅ Ensures it's above header/logo */
+
+  background-color: #d8ecff;          /* Light blue background for contrast */
+  overflow: hidden;                   /* Hides overflowed scrolling text */
+  white-space: nowrap;                /* Prevents text from wrapping */
+  border-bottom: 1px solid #cfd8e2;   /* Adds subtle bottom border */
+  height: 20px;                       /* Slim bar height */
+  line-height: 16px;                  /* Controls vertical alignment of text */
+  padding-top: 2px;                   /* Push text slightly downward */
+  padding-bottom: 0;                  /* No extra bottom space */
+  text-align: center;                 /* Horizontal alignment */
 }
 
+/* ============================
+   Scrolling Text inside Bar
+   ============================ */
 .announcement-text {
   display: inline-block;                          /* Enables animation */
   animation: scroll-left 15s linear infinite;     /* Leftward scroll */
   color: #003366;                                 /* Navy blue text */
   font-size: 0.7rem;                              /* Small font */
   font-weight: 500;
-  vertical-align: top;                            /* Hint: try forcing top align */
+  vertical-align: top;                            /* Force top alignment */
 }
 
 /* ============================
-   Scrolling Animation
+   Scroll Animation Keyframes
    ============================ */
 @keyframes scroll-left {
-  0%   { transform: translateX(100%); }   /* Start off-screen right */
-  100% { transform: translateX(-100%); }  /* End off-screen left */
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
 }
 
-
 /* ============================
-   Header Layout
+   Header Adjustment (Pushed down)
    ============================ */
 .site-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;     /* Ensures left, center, and right alignment */
-  padding: 12px 16px;
-  background-color: white;
-  border-bottom: 1px solid #ddd;
-  position: relative;
-  z-index: 1000;
-}
-
-/* Left Section: Share Button */
-.header-left {
-  flex: 1;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-/* Center Section: Logo */
-.header-center {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-}
-
-/* Right Section: Hamburger */
-.header-right {
-  flex: 1;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-/* ============================
-   Logo
-   ============================ */
-.logo {
-  height: 45px;
-}
-
-
-/* ============================
-   Share Button (No Background)
-   ============================ */
-.icon {
-  height: 28px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-}
-
-
-/* ============================
-   Hamburger Menu Button
-   ============================ */
-.hamburger {
-  font-size: 24px;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-
-/* ============================
-   Dropdown Nav Menu (Mobile)
-   ============================ */
-#navMenu {
-  display: none;
-  flex-direction: column;
-  position: absolute;
-  top: 70px;
-  right: 16px;
-  background: white;
-  border: 1px solid #ccc;
-  padding: 12px;
-  z-index: 999;
-}
-
-#navMenu a {
-  text-decoration: none;
-  color: #004b8d;
-  padding: 8px 0;
-  display: block;
-  font-weight: 500;
-}
-
-#navMenu.active {
-  display: flex;
+  margin-top: 20px;                  /* ✅ Prevents header from being hidden under the fixed bar */
 }
