@@ -4,19 +4,22 @@
 .announcement-bar {
   background-color: #d8ecff;         /* Light blue background for contrast */
   overflow: hidden;                  /* Hides overflowed scrolling text */
-  white-space: nowrap;              /* Prevents text from wrapping */
+  white-space: nowrap;               /* Prevents text from wrapping */
   border-bottom: 1px solid #cfd8e2;  /* Adds subtle bottom border */
-  padding: 3px 0;                    /* Less vertical space to raise the text */
-  height: 20px;                      /* Slimmer bar height for minimal design */
-  text-align: center;                /* Center-aligns the announcement */
+  height: 20px;                      /* Slim bar height */
+  line-height: 16px;                 /* Controls vertical alignment of text */
+  padding-top: 2px;                  /* Push text slightly downward */
+  padding-bottom: 0;                 /* No extra bottom space */
+  text-align: center;                /* Horizontal alignment */
 }
 
 .announcement-text {
-  display: inline-block;                          /* Allows animation to scroll */
-  animation: scroll-left 15s linear infinite;     /* Continuous leftward scroll */
-  color: #003366;                                 /* Matches brand navy blue */
-  font-size: 0.7rem;                              /* Smaller font for subtle style */
-  font-weight: 500;                               /* Slightly bolder text */
+  display: inline-block;                          /* Enables animation */
+  animation: scroll-left 15s linear infinite;     /* Leftward scroll */
+  color: #003366;                                 /* Navy blue text */
+  font-size: 0.7rem;                              /* Small font */
+  font-weight: 500;
+  vertical-align: top;                            /* Hint: try forcing top align */
 }
 
 /* ============================
