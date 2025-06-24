@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ============================
-  // Hamburger Menu Toggle
+  // Hamburger  Menu Toggle
   // ============================
   const hamburger = document.querySelector(".hamburger");
   const navMenu = document.getElementById("navMenu");
