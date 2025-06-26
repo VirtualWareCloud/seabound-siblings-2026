@@ -18,6 +18,7 @@
 
     html, body {
       height: 100%;
+      margin: 0;
     }
 
     body {
@@ -26,7 +27,6 @@
       color: var(--dark);
       display: flex;
       flex-direction: column;
-      line-height: 1.6;
     }
 
     a {
@@ -34,26 +34,25 @@
       text-decoration: none;
     }
 
-    /* HEADER */
+    /* ===== HEADER ===== */
     header {
       background: #fff;
-      position: relative;
-      z-index: 10;
       box-shadow: 0 2px 4px rgba(0,0,0,.05);
+      z-index: 1000;
     }
 
-    .header-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: .8rem 1rem;
-    }
-
+    .header-row,
     .header-row2 {
       display: flex;
       align-items: center;
+      justify-content: space-between;
+      padding: 0.8rem 1rem;
+    }
+
+    .header-row2 {
       justify-content: flex-start;
-      padding: .4rem 1rem;
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
     }
 
     .separator {
@@ -62,9 +61,10 @@
     }
 
     .logo {
-      height: 80px;
+      height: 60px;
+      max-width: 120px;
       cursor: pointer;
-      transition: transform .3s ease;
+      transition: transform 0.3s ease;
     }
 
     .logo:hover {
@@ -76,12 +76,12 @@
       border: none;
       cursor: pointer;
       padding: 0;
-      transition: transform .3s ease;
+      transition: transform 0.3s ease;
     }
 
     .btn-icon img {
-      height: 28px;
-      width: 28px;
+      height: 32px;
+      width: 32px;
     }
 
     .btn-icon:hover {
@@ -89,12 +89,7 @@
     }
 
     .hamburger {
-      font-size: 1.75rem;
-      transition: transform .3s ease;
-    }
-
-    .hamburger:hover {
-      transform: rotate(90deg);
+      font-size: 2rem;
     }
 
     nav {
@@ -103,43 +98,37 @@
       background: #fff;
       border-top: 1px solid #ddd;
       text-align: center;
-      animation: fadeSlide .3s ease forwards;
     }
 
     nav a {
-      padding: .9rem;
-      color: var(--dark);
+      padding: 1rem;
       font-weight: 600;
-      letter-spacing: .3px;
       border-bottom: 1px solid #eee;
-      transition: background .25s, color .25s;
+      color: var(--dark);
+      transition: background 0.2s;
     }
 
     nav a:hover {
       background: var(--ocean);
-      color: #fff;
+      color: white;
     }
 
     nav.active {
       display: flex;
     }
 
-    @keyframes fadeSlide {
-      from { opacity: 0; transform: translateY(-8px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* BODY */
+    /* ===== MAIN BODY ===== */
     main {
       flex: 1;
+      padding-bottom: 1rem;
     }
 
     .video-text {
       text-align: center;
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       font-weight: 600;
-      padding: 2rem 1rem .75rem;
       color: var(--navy);
+      padding: 1.5rem 1rem 0.5rem;
     }
 
     .video-section {
@@ -150,13 +139,14 @@
 
     video {
       width: 100%;
-      max-width: 920px;
-      border: 4px solid var(--navy);
-      border-radius: 10px;
-      box-shadow: 0 6px 12px rgba(0,0,0,.15);
+      max-width: 100%;
+      height: auto;
+      border: 3px solid var(--navy);
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,.2);
     }
 
-    /* FOOTER */
+    /* ===== FOOTER ===== */
     footer.site-footer {
       background: #f4f4f4;
       padding: 12px 6px;
@@ -166,21 +156,21 @@
 
     .footer-icons {
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
-      gap: 12px;
+      flex-wrap: wrap;
+      gap: 10px;
       margin-bottom: 6px;
     }
 
     .footer-icons img {
-      width: 36px;
-      height: 36px;
-      transition: transform .3s ease, filter .3s ease;
-      filter: grayscale(.2);
+      width: 34px;
+      height: 34px;
+      transition: transform 0.3s ease, filter 0.3s ease;
+      filter: grayscale(0.4);
     }
 
     .footer-icons img:hover {
-      transform: scale(1.18) rotate(8deg);
+      transform: scale(1.15);
       filter: none;
     }
 
@@ -188,109 +178,131 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 4px;
-      font-size: .85rem;
-      font-weight: 500;
+      gap: 6px;
+      font-size: 0.85rem;
       color: #222;
     }
 
     .footer-credit img {
-      height: 20px;
-      width: auto;
+      height: 18px;
       vertical-align: middle;
+    }
+
+    /* RESPONSIVE OPTIMIZATION */
+    @media (min-width: 768px) {
+      .logo {
+        height: 80px;
+      }
+
+      .btn-icon img {
+        height: 36px;
+        width: 36px;
+      }
+
+      nav a {
+        font-size: 1rem;
+      }
+
+      .video-text {
+        font-size: 1.4rem;
+      }
+
+      .footer-icons img {
+        width: 38px;
+        height: 38px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<!-- =================== HEADER =================== -->
-<header>
-  <div class="header-row">
-    <button class="btn-icon" onclick="sharePage()">
-      <img src="icons/share_button_seabound.svg" alt="Share">
-    </button>
-    <img src="images/logo.png" class="logo" alt="Seabound Logo" onclick="location.href='index.html'">
-    <button class="btn-icon hamburger" aria-label="Toggle menu" onclick="toggleMenu()">☰</button>
-  </div>
+  <!-- HEADER -->
+  <header>
+    <div class="header-row">
+      <button class="btn-icon" onclick="sharePage()">
+        <img src="icons/share_button_seabound.svg" alt="Share">
+      </button>
+      <img src="images/logo.png" class="logo" alt="Seabound Logo" onclick="location.href='index.html'">
+      <button class="btn-icon hamburger" aria-label="Toggle menu" onclick="toggleMenu()">☰</button>
+    </div>
 
-  <div class="separator"></div>
+    <div class="separator"></div>
 
-  <div class="header-row2">
-    <img src="images/logo.png" alt="Logo Share" style="height: 60px; margin-left: 8px;" onclick="sharePage()">
-  </div>
+    <div class="header-row2">
+      <img src="images/logo.png" alt="Logo Share" style="height: 50px;" onclick="sharePage()">
+    </div>
 
-  <div class="separator"></div>
+    <div class="separator"></div>
 
-  <nav id="mobileMenu">
-    <a href="index.html">Home</a>
-    <a href="challenge.html">The Challenge</a>
-    <a href="crew.html">The Crew</a>
-    <a href="costs.html">Expedition Costs</a>
-    <a href="partner.html">Partner With Us</a>
-    <a href="cause.html">The Cause</a>
-    <a href="contact-us.html">Get In Touch</a>
-  </nav>
-</header>
+    <nav id="mobileMenu">
+      <a href="index.html">Home</a>
+      <a href="challenge.html">The Challenge</a>
+      <a href="crew.html">The Crew</a>
+      <a href="costs.html">Expedition Costs</a>
+      <a href="partner.html">Partner With Us</a>
+      <a href="cause.html">The Cause</a>
+      <a href="contact-us.html">Get In Touch</a>
+    </nav>
+  </header>
 
-<!-- =================== BODY =================== -->
-<main>
-  <p class="video-text">Check out the challenge video below</p>
+  <!-- MAIN -->
+  <main>
+    <p class="video-text">Check out the challenge video below</p>
+    <div class="separator"></div>
 
-  <div class="separator"></div>
+    <div class="video-section">
+      <video controls>
+        <source src="vids/landing_page_vid.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
 
-  <div class="video-section">
-    <video controls>
-      <source src="vids/landing_page_vid.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  </div>
+    <div class="separator"></div>
+  </main>
 
-  <div class="separator"></div>
-</main>
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-icons">
+      <a href="https://wa.me/27696251390" target="_blank"><img src="icons/whatsapp.svg" alt="WhatsApp"></a>
+      <a href="mailto:info@seabound-siblings.com"><img src="icons/email.svg" alt="Email"></a>
+      <a href="https://t.me/seaboundsiblings" target="_blank"><img src="icons/telegram.svg" alt="Telegram"></a>
+      <a href="https://facebook.com/seaboundsiblings" target="_blank"><img src="icons/facebook.svg" alt="Facebook"></a>
+      <a href="https://twitter.com/seaboundsibs" target="_blank"><img src="icons/twitter.svg" alt="Twitter"></a>
+      <a href="https://instagram.com/seaboundsiblings" target="_blank"><img src="icons/instagram.svg" alt="Instagram"></a>
+      <a href="invest.html"><img src="icons/donate.svg" alt="Donate"></a>
+    </div>
 
-<!-- =================== FOOTER =================== -->
-<footer class="site-footer">
-  <div class="footer-icons">
-    <a href="https://wa.me/27696251390" target="_blank"><img src="icons/whatsapp.svg" alt="WhatsApp"></a>
-    <a href="mailto:info@seabound-siblings.com"><img src="icons/email.svg" alt="Email"></a>
-    <a href="https://t.me/seaboundsiblings" target="_blank"><img src="icons/telegram.svg" alt="Telegram"></a>
-    <a href="https://facebook.com/seaboundsiblings" target="_blank"><img src="icons/facebook.svg" alt="Facebook"></a>
-    <a href="https://twitter.com/seaboundsibs" target="_blank"><img src="icons/twitter.svg" alt="Twitter"></a>
-    <a href="https://instagram.com/seaboundsiblings" target="_blank"><img src="icons/instagram.svg" alt="Instagram"></a>
-    <a href="invest.html"><img src="icons/donate.svg" alt="Donate"></a>
-  </div>
+    <div class="footer-credit">
+      Designed by 
+      <a href="https://virtualwarecloud.github.io/" target="_blank">
+        <img src="icons/virtualwarecloud_logo_footer_icon.svg" alt="VirtualWareCloud"> VirtualWareCloud
+      </a>
+    </div>
+  </footer>
 
-  <div class="footer-credit">
-    Designed by 
-    <a href="https://virtualwarecloud.github.io/" target="_blank">
-      <img src="icons/virtualwarecloud_logo_footer_icon.svg" alt="VirtualWareCloud"> VirtualWareCloud
-    </a>
-  </div>
-</footer>
-
-<!-- =================== SCRIPTS =================== -->
-<script>
-  function toggleMenu(){
-    document.getElementById('mobileMenu').classList.toggle('active');
-  }
-
-  async function sharePage(){
-    const shareData = {
-      title: 'Seabound Siblings – World’s Toughest Row',
-      text: 'Support our journey across the Atlantic!',
-      url: window.location.href
-    };
-    try {
-      if (navigator.share) {
-        await navigator.share(shareData);
-      } else {
-        prompt("Copy this link & share it:", window.location.href);
-      }
-    } catch (err) {
-      console.error("Share failed:", err);
+  <!-- SCRIPTS -->
+  <script>
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('active');
     }
-  }
-</script>
+
+    async function sharePage() {
+      const shareData = {
+        title: 'Seabound Siblings – World’s Toughest Row',
+        text: 'Support our journey across the Atlantic!',
+        url: window.location.href
+      };
+      try {
+        if (navigator.share) {
+          await navigator.share(shareData);
+        } else {
+          prompt("Copy this link & share it:", window.location.href);
+        }
+      } catch (err) {
+        console.error("Share failed:", err);
+      }
+    }
+  </script>
 </body>
 </html>
