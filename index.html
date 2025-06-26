@@ -9,14 +9,13 @@
   <!-- ==========  GLOBAL STYLES & COLOR SCHEME  ========== -->
   <style>
     :root{
-      --navy:   #001f54;   /* primary navy */
-      --ocean:  #008cba;   /* bright ocean blue */
-      --seafoam:#3bc9db;   /* soft seafoam */
-      --sun:    #ffbe30;   /* golden accent */
+      --navy:   #001f54;
+      --ocean:  #008cba;
+      --seafoam:#3bc9db;
+      --sun:    #ffbe30;
       --light:  #f2f8ff;
       --dark:   #0d0d0d;
     }
-    /* -----------------   RESET   ----------------- */
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     body{
       font-family:"Segoe UI",sans-serif;
@@ -50,7 +49,6 @@
       background:var(--navy);
     }
 
-    /* ----- Brand / Share / Hamburger ----- */
     .logo{
       height:50px;
       cursor:pointer;
@@ -72,7 +70,6 @@
     }
     .hamburger:hover{transform:rotate(90deg)}
 
-    /* ----- Mobile Nav ----- */
     nav{
       display:none;
       flex-direction:column;
@@ -121,10 +118,10 @@
       box-shadow:0 6px 12px rgba(0,0,0,.15);
     }
 
-    /* ========== FOOTER ========== */
+    /* ========== FOOTER (Optimized) ========== */
     footer.site-footer{
       background:#f4f4f4;
-      padding:20px 10px;
+      padding:12px 6px;
       text-align:center;
       border-top:3px solid var(--navy);
     }
@@ -132,11 +129,11 @@
       display:flex;
       flex-wrap:wrap;
       justify-content:center;
-      gap:18px;
-      margin-bottom:12px;
+      gap:12px;
+      margin-bottom:6px;
     }
     .footer-icons img{
-      width:30px;height:30px;
+      width:36px;height:36px;
       transition:transform .3s ease,filter .3s ease;
       filter:grayscale(.2);
     }
@@ -148,42 +145,35 @@
       display:flex;
       justify-content:center;
       align-items:center;
-      gap:6px;
-      font-size:.9rem;
+      gap:4px;
+      font-size:.8rem;
       color:#555;
     }
-    .footer-credit img{height:17px;width:auto;vertical-align:middle}
+    .footer-credit img{height:20px;width:auto;vertical-align:middle}
   </style>
 </head>
 
 <body>
-<!-- =========================================================
-     HEADER  (stored as “Seabound Animated Header”)
-========================================================== -->
+<!-- =================== HEADER =================== -->
 <header>
-  <!-- Row 1 -->
   <div class="header-row">
     <button class="btn-icon" onclick="sharePage()">
       <img src="icons/share_button_seabound.svg" alt="Share">
     </button>
-
     <img src="images/logo.png" class="logo" alt="Seabound Logo" onclick="location.href='index.html'">
-
     <button class="btn-icon hamburger" aria-label="Toggle menu" onclick="toggleMenu()">☰</button>
   </div>
 
   <div class="separator"></div>
 
-  <!-- Row 2 -->
   <div class="header-row2">
     <button class="btn-icon" onclick="sharePage()">
-      <img src="images/logo4.png" alt="Logo Share">
+      <img src="images/logo.png" alt="Logo Share">
     </button>
   </div>
 
   <div class="separator"></div>
 
-  <!-- Mobile Menu -->
   <nav id="mobileMenu">
     <a href="index.html">Home</a>
     <a href="challenge.html">The Challenge</a>
@@ -195,13 +185,13 @@
   </nav>
 </header>
 
-<!-- =========================================================
-     BODY
-========================================================== -->
+<!-- =================== BODY =================== -->
 <main>
   <p class="video-text">
     Check out the challenge video below
   </p>
+
+  <div class="separator"></div>
 
   <div class="video-section">
     <video controls>
@@ -213,17 +203,15 @@
   <div class="separator"></div>
 </main>
 
-<!-- =========================================================
-     FOOTER  (stored as “Seabound Animated Footer”)
-========================================================== -->
+<!-- =================== FOOTER =================== -->
 <footer class="site-footer">
   <div class="footer-icons">
-    <a href="https://wa.me/27696251390"      target="_blank"><img src="icons/whatsapp.svg"                    alt="WhatsApp"></a>
-    <a href="mailto:info@seabound-siblings.com"><img src="icons/email.svg"                        alt="Email"></a>
-    <a href="https://t.me/seaboundsiblings"  target="_blank"><img src="icons/telegram.svg"                     alt="Telegram"></a>
-    <a href="https://facebook.com/seaboundsiblings" target="_blank"><img src="icons/facebook.svg"              alt="Facebook"></a>
-    <a href="https://twitter.com/seaboundsibs"       target="_blank"><img src="icons/twitter.svg"               alt="Twitter"></a>
-    <a href="https://instagram.com/seaboundsiblings" target="_blank"><img src="icons/instagram.svg"             alt="Instagram"></a>
+    <a href="https://wa.me/27696251390" target="_blank"><img src="icons/whatsapp.svg" alt="WhatsApp"></a>
+    <a href="mailto:info@seabound-siblings.com"><img src="icons/email.svg" alt="Email"></a>
+    <a href="https://t.me/seaboundsiblings" target="_blank"><img src="icons/telegram.svg" alt="Telegram"></a>
+    <a href="https://facebook.com/seaboundsiblings" target="_blank"><img src="icons/facebook.svg" alt="Facebook"></a>
+    <a href="https://twitter.com/seaboundsibs" target="_blank"><img src="icons/twitter.svg" alt="Twitter"></a>
+    <a href="https://instagram.com/seaboundsiblings" target="_blank"><img src="icons/instagram.svg" alt="Instagram"></a>
     <a href="invest.html"><img src="icons/donate.svg" alt="Donate"></a>
   </div>
 
@@ -235,16 +223,12 @@
   </div>
 </footer>
 
-<!-- =========================================================
-     SCRIPTS
-========================================================== -->
+<!-- =================== SCRIPTS =================== -->
 <script>
-  /* Toggle mobile nav */
   function toggleMenu(){
     document.getElementById('mobileMenu').classList.toggle('active');
   }
 
-  /* Native Share API (with graceful fallback) */
   async function sharePage(){
     const shareData={
       title:'Seabound Siblings – World’s Toughest Row',
