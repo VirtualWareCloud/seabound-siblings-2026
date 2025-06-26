@@ -3,149 +3,187 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Seabound Siblings | World's Toughest Row</title>
-  <link rel="icon" href="images/logo.png" />
+  <title>Seabound Siblings | World’s Toughest Row</title>
+  <link rel="icon" href="images/logo.png"/>
+
+  <!-- ==========  GLOBAL STYLES & COLOR SCHEME  ========== -->
   <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f9f9f9;
+    :root{
+      --navy:   #001f54;   /* primary navy */
+      --ocean:  #008cba;   /* bright ocean blue */
+      --seafoam:#3bc9db;   /* soft seafoam */
+      --sun:    #ffbe30;   /* golden accent */
+      --light:  #f2f8ff;
+      --dark:   #0d0d0d;
+    }
+    /* -----------------   RESET   ----------------- */
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:"Segoe UI",sans-serif;
+      background:linear-gradient(180deg,var(--light) 0%,#ffffff 40%,var(--seafoam) 100%);
+      color:var(--dark);
+      line-height:1.6;
+    }
+    a{color:inherit;text-decoration:none}
+
+    /* ========== HEADER (WHITE BACKGROUND) ========== */
+    header{
+      background:#fff;
+      position:relative;
+      z-index:10;
+      box-shadow:0 2px 4px rgba(0,0,0,.05);
+    }
+    .header-row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:.8rem 1rem;
+    }
+    .header-row2{
+      display:flex;
+      align-items:center;
+      padding:.4rem 1rem;
+      gap:.75rem;
+    }
+    .separator{
+      height:2px;
+      background:var(--navy);
     }
 
-    header {
-      background-color: white;
-      text-align: center;
-      padding: 0;
-      position: relative;
+    /* ----- Brand / Share / Hamburger ----- */
+    .logo{
+      height:50px;
+      cursor:pointer;
+      transition:transform .3s ease;
+    }
+    .logo:hover{transform:scale(1.08)}
+    .btn-icon{
+      background:none;
+      border:none;
+      cursor:pointer;
+      padding:0;
+      transition:transform .3s ease;
+    }
+    .btn-icon img{height:28px;width:28px}
+    .btn-icon:hover{transform:scale(1.2)}
+    .hamburger{
+      font-size:1.75rem;
+      transition:transform .3s ease;
+    }
+    .hamburger:hover{transform:rotate(90deg)}
+
+    /* ----- Mobile Nav ----- */
+    nav{
+      display:none;
+      flex-direction:column;
+      background:#fff;
+      border-top:1px solid #ddd;
+      text-align:center;
+      animation:fadeSlide .3s ease forwards;
+    }
+    nav a{
+      padding:.9rem;
+      color:var(--dark);
+      font-weight:600;
+      letter-spacing:.3px;
+      border-bottom:1px solid #eee;
+      transition:background .25s,color .25s;
+    }
+    nav a:hover{
+      background:var(--ocean);
+      color:#fff;
+    }
+    nav.active{display:flex}
+
+    @keyframes fadeSlide{
+      from{opacity:0;transform:translateY(-8px)}
+      to  {opacity:1;transform:translateY(0)}
     }
 
-    .header-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.8rem 1rem;
+    /* ========== BODY SECTION ========== */
+    .video-text{
+      text-align:center;
+      font-size:1.25rem;
+      font-weight:600;
+      padding:2rem 1rem .75rem;
+      color:var(--navy);
+    }
+    .video-section{
+      display:flex;
+      justify-content:center;
+      padding:1rem;
+    }
+    video{
+      width:100%;
+      max-width:920px;
+      border:4px solid var(--navy);
+      border-radius:10px;
+      box-shadow:0 6px 12px rgba(0,0,0,.15);
     }
 
-    .separator {
-      height: 2px;
-      background-color: navy;
-      margin: 0;
+    /* ========== FOOTER ========== */
+    footer.site-footer{
+      background:#f4f4f4;
+      padding:20px 10px;
+      text-align:center;
+      border-top:3px solid var(--navy);
     }
-
-    .logo {
-      height: 50px;
-      cursor: pointer;
-      transition: transform 0.3s ease;
+    .footer-icons{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:18px;
+      margin-bottom:12px;
     }
-
-    .logo:hover {
-      transform: scale(1.1);
+    .footer-icons img{
+      width:30px;height:30px;
+      transition:transform .3s ease,filter .3s ease;
+      filter:grayscale(.2);
     }
-
-    .share-button {
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 0;
-      transition: transform 0.3s ease;
+    .footer-icons img:hover{
+      transform:scale(1.18) rotate(8deg);
+      filter:none;
     }
-
-    .share-button img {
-      height: 28px;
+    .footer-credit{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:6px;
+      font-size:.9rem;
+      color:#555;
     }
-
-    .share-button:hover {
-      transform: scale(1.2);
-    }
-
-    .hamburger {
-      display: block;
-      cursor: pointer;
-      font-size: 1.6rem;
-      padding: 0.3rem;
-      background: none;
-      border: none;
-      transition: transform 0.3s ease;
-    }
-
-    .hamburger:hover {
-      transform: rotate(90deg);
-    }
-
-    nav {
-      display: none;
-      flex-direction: column;
-      background-color: white;
-      text-align: center;
-      border-top: 1px solid #ccc;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #333;
-      padding: 0.8rem;
-      transition: background 0.3s;
-    }
-
-    nav a:hover {
-      background-color: #f0f0f0;
-      color: navy;
-    }
-
-    nav.active {
-      display: flex;
-    }
-
-    .header-row2 {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      padding: 0.5rem 1rem;
-    }
-
-    .video-text {
-      text-align: center;
-      font-size: 1.2rem;
-      padding: 1.5rem 1rem 0.5rem;
-      color: #222;
-    }
-
-    .video-section {
-      display: flex;
-      justify-content: center;
-      padding: 1rem;
-    }
-
-    video {
-      width: 100%;
-      max-width: 900px;
-      border: 2px solid navy;
-      border-radius: 8px;
-    }
+    .footer-credit img{height:17px;width:auto;vertical-align:middle}
   </style>
 </head>
-<body>
 
-<!-- HEADER -->
+<body>
+<!-- =========================================================
+     HEADER  (stored as “Seabound Animated Header”)
+========================================================== -->
 <header>
+  <!-- Row 1 -->
   <div class="header-row">
-    <button class="share-button" onclick="sharePage()">
+    <button class="btn-icon" onclick="sharePage()">
       <img src="icons/share_button_seabound.svg" alt="Share">
     </button>
-    <img src="images/logo.png" class="logo" alt="Logo" onclick="location.href='index.html'">
-    <button class="hamburger" onclick="toggleMenu()">☰</button>
+
+    <img src="images/logo.png" class="logo" alt="Seabound Logo" onclick="location.href='index.html'">
+
+    <button class="btn-icon hamburger" aria-label="Toggle menu" onclick="toggleMenu()">☰</button>
   </div>
 
   <div class="separator"></div>
 
+  <!-- Row 2 -->
   <div class="header-row2">
-    <button class="share-button" onclick="sharePage()">
+    <button class="btn-icon" onclick="sharePage()">
       <img src="images/logo.png" alt="Logo Share">
     </button>
   </div>
 
   <div class="separator"></div>
 
+  <!-- Mobile Menu -->
   <nav id="mobileMenu">
     <a href="index.html">Home</a>
     <a href="challenge.html">The Challenge</a>
@@ -157,11 +195,13 @@
   </nav>
 </header>
 
-<!-- BODY -->
+<!-- =========================================================
+     BODY
+========================================================== -->
 <main>
-  <div class="video-text">
-    Check out the below video to view the challenge
-  </div>
+  <p class="video-text">
+    Check out the challenge video below
+  </p>
 
   <div class="separator"></div>
 
@@ -175,39 +215,54 @@
   <div class="separator"></div>
 </main>
 
-<!-- FOOTER -->
-<div id="footer-container"></div>
+<!-- =========================================================
+     FOOTER  (stored as “Seabound Animated Footer”)
+========================================================== -->
+<footer class="site-footer">
+  <div class="footer-icons">
+    <a href="https://wa.me/27696251390"      target="_blank"><img src="icons/whatsapp.svg"                    alt="WhatsApp"></a>
+    <a href="mailto:info@seabound-siblings.com"><img src="icons/email.svg"                        alt="Email"></a>
+    <a href="https://t.me/seaboundsiblings"  target="_blank"><img src="icons/telegram.svg"                     alt="Telegram"></a>
+    <a href="https://facebook.com/seaboundsiblings" target="_blank"><img src="icons/facebook.svg"              alt="Facebook"></a>
+    <a href="https://twitter.com/seaboundsibs"       target="_blank"><img src="icons/twitter.svg"               alt="Twitter"></a>
+    <a href="https://instagram.com/seaboundsiblings" target="_blank"><img src="icons/instagram.svg"             alt="Instagram"></a>
+    <a href="invest.html"><img src="icons/donate.svg" alt="Donate"></a>
+  </div>
 
+  <div class="footer-credit">
+    Designed by 
+    <a href="https://virtualwarecloud.github.io/" target="_blank">
+      <img src="icons/virtualwarecloud_logo_footer_icon.svg" alt="VirtualWareCloud"> VirtualWareCloud
+    </a>
+  </div>
+</footer>
+
+<!-- =========================================================
+     SCRIPTS
+========================================================== -->
 <script>
-  function toggleMenu() {
+  /* Toggle mobile nav */
+  function toggleMenu(){
     document.getElementById('mobileMenu').classList.toggle('active');
   }
 
-  async function sharePage() {
-    const shareData = {
-      title: 'Seabound Siblings - World’s Toughest Row',
-      text: 'Support our journey across the Atlantic!',
-      url: window.location.href
+  /* Native Share API (with graceful fallback) */
+  async function sharePage(){
+    const shareData={
+      title:'Seabound Siblings – World’s Toughest Row',
+      text:'Support our journey across the Atlantic!',
+      url:window.location.href
     };
-
-    try {
-      if (navigator.share) {
+    try{
+      if(navigator.share){
         await navigator.share(shareData);
-      } else {
-        alert("Sharing not supported on this device.");
+      }else{
+        prompt("Copy this link & share it:",window.location.href);
       }
-    } catch (err) {
-      console.error("Share failed:", err);
+    }catch(err){
+      console.error("Share failed:",err);
     }
   }
-
-  // Load external footer
-  fetch('/components/FOOTER.html')
-    .then(res => res.text())
-    .then(data => {
-      document.getElementById('footer-container').innerHTML = data;
-    });
 </script>
-
 </body>
 </html>
