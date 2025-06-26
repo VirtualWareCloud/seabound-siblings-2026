@@ -3,150 +3,211 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Support Seabound Siblings on their journey across the Atlantic in the World’s Toughest Row."/>
   <title>Seabound Siblings | World's Toughest Row</title>
-  <link rel="icon" href="./icons/seabound_favicon_2026.ico" type="image/x-icon"/>
-  <link rel="stylesheet" href="./components/HEADER.css" />
-  <link rel="stylesheet" href="./components/FOOTER.css" />
+  <link rel="icon" href="images/logo.png" />
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: #f3faff;
-      color: #1a1a1a;
+      background-color: #f9f9f9;
     }
 
-    .hero {
+    header {
+      background-color: white;
       text-align: center;
-      padding: 60px 20px;
-      background: linear-gradient(to bottom right, #002b5c, #0077b6);
-      color: white;
+      padding: 0;
+      position: relative;
     }
 
-    .hero h1 {
-      font-size: 2.6rem;
-      margin-bottom: 15px;
-      animation: fadeIn 1s ease-in-out;
-    }
-
-    .hero p {
-      font-size: 1.1rem;
-      max-width: 780px;
-      margin: 0 auto 25px;
-      color: #e0e0e0;
-    }
-
-    .hero video {
-      width: 92%;
-      max-width: 780px;
-      border-radius: 12px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-      background: #000;
-      transition: transform 0.3s;
-    }
-
-    .hero video:hover {
-      transform: scale(1.02);
-    }
-
-    .cards {
+    .header-row {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 24px;
-      padding: 50px 20px;
-      background-color: #ffffff;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.8rem 1rem;
     }
 
-    .card {
-      background: #ffffff;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-      border: 1px solid #cfd8e2;
-      width: 280px;
-      padding: 20px;
-      transition: transform 0.3s, box-shadow 0.3s;
+    .separator {
+      height: 2px;
+      background-color: navy;
+      margin: 0;
     }
 
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    .logo {
+      height: 50px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
     }
 
-    .card h3 {
-      margin-top: 0;
-      color: #003366;
+    .logo:hover {
+      transform: scale(1.1);
     }
 
-    .card p {
-      color: #444;
-      font-size: 0.95rem;
-    }
-
-    hr.section-separator {
-      width: 85%;
-      margin: 60px auto 30px;
+    .share-button {
+      background: none;
       border: none;
-      height: 1px;
-      background-color: #a3c8e8;
+      cursor: pointer;
+      padding: 0;
+      transition: transform 0.3s ease;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    .share-button img {
+      height: 28px;
+    }
+
+    .share-button:hover {
+      transform: scale(1.2);
+    }
+
+    .hamburger {
+      display: block;
+      cursor: pointer;
+      font-size: 1.6rem;
+      padding: 0.3rem;
+      background: none;
+      border: none;
+      transition: transform 0.3s ease;
+    }
+
+    .hamburger:hover {
+      transform: rotate(90deg);
+    }
+
+    nav {
+      display: none;
+      flex-direction: column;
+      background-color: white;
+      text-align: center;
+      border-top: 1px solid #ccc;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      padding: 0.8rem;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #f0f0f0;
+      color: navy;
+    }
+
+    nav.active {
+      display: flex;
+    }
+
+    .header-row2 {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 0.5rem 1rem;
+    }
+
+    .video-text {
+      text-align: center;
+      font-size: 1.2rem;
+      padding: 1.5rem 1rem 0.5rem;
+      color: #222;
+    }
+
+    .video-section {
+      display: flex;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    video {
+      width: 100%;
+      max-width: 900px;
+      border: 2px solid navy;
+      border-radius: 8px;
     }
   </style>
 </head>
 <body>
 
-  <!-- Header (Reusable Component) -->
-  <div id="header-container"></div>
+<!-- HEADER -->
+<header>
+  <div class="header-row">
+    <button class="share-button" onclick="sharePage()">
+      <img src="icons/share_button_seabound.svg" alt="Share">
+    </button>
+    <img src="images/logo.png" class="logo" alt="Logo" onclick="location.href='index.html'">
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+  </div>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <h1>Seabound Siblings vs. The World's Toughest Row</h1>
-    <p>Join our inspiring journey as Jess & Mel row across the Atlantic Ocean in the ultimate endurance challenge. Support the mission and follow the adventure!</p>
-    <video controls autoplay muted loop playsinline>
-      <source src="https://raw.githubusercontent.com/VirtualWareCloud/seabound-siblings-2026/main/vids/landing_page_vid.mp4" type="video/mp4" />
+  <div class="separator"></div>
+
+  <div class="header-row2">
+    <button class="share-button" onclick="sharePage()">
+      <img src="images/logo.png" alt="Logo Share">
+    </button>
+  </div>
+
+  <div class="separator"></div>
+
+  <nav id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="challenge.html">The Challenge</a>
+    <a href="crew.html">The Crew</a>
+    <a href="costs.html">Expedition Costs</a>
+    <a href="partner.html">Partner With Us</a>
+    <a href="cause.html">The Cause</a>
+    <a href="contact-us.html">Get In Touch</a>
+  </nav>
+</header>
+
+<!-- BODY -->
+<main>
+  <div class="video-text">
+    Check out the below video to view the challenge
+  </div>
+
+  <div class="separator"></div>
+
+  <div class="video-section">
+    <video controls>
+      <source src="vids/landing_page_vid.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
-  </section>
+  </div>
 
-  <hr class="section-separator" />
+  <div class="separator"></div>
+</main>
 
-  <!-- Info Cards Section -->
-  <section class="cards">
-    <div class="card">
-      <h3>Meet the Crew</h3>
-      <p>Two resilient sisters from Spain, rowing with passion and purpose across the Atlantic to raise awareness and funds for a greater cause.</p>
-    </div>
-    <div class="card">
-      <h3>The Challenge</h3>
-      <p>Crossing 3,000 miles of open ocean in a rowing boat—facing storms, fatigue, and uncertainty—this is the World’s Toughest Row.</p>
-    </div>
-    <div class="card">
-      <h3>Get Involved</h3>
-      <p>Support our expedition through donations, gear sponsorships, or simply by spreading the word. Every bit helps power the mission.</p>
-    </div>
-  </section>
+<!-- FOOTER -->
+<div id="footer-container"></div>
 
-  <!-- Footer (Reusable Component) -->
-  <div id="footer-container"></div>
+<script>
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('active');
+  }
 
-  <!-- Load Header and Footer -->
-  <script>
-    async function loadComponent(id, file) {
-      const res = await fetch(file);
-      const html = await res.text();
-      document.getElementById(id).innerHTML = html;
+  async function sharePage() {
+    const shareData = {
+      title: 'Seabound Siblings - World’s Toughest Row',
+      text: 'Support our journey across the Atlantic!',
+      url: window.location.href
+    };
+
+    try {
+      if (navigator.share) {
+        await navigator.share(shareData);
+      } else {
+        alert("Sharing not supported on this device.");
+      }
+    } catch (err) {
+      console.error("Share failed:", err);
     }
+  }
 
-    loadComponent("header-container", "./components/HEADER.html");
-    loadComponent("footer-container", "./components/FOOTER.html");
-  </script>
+  // Load external footer
+  fetch('/components/FOOTER.html')
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById('footer-container').innerHTML = data;
+    });
+</script>
 
-  <!-- JS Files -->
-  <script src="./components/HEADER.js"></script>
-  <script src="./components/FOOTER.js"></script>
 </body>
 </html>
