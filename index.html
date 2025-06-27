@@ -43,8 +43,7 @@
       z-index: 1000;
     }
 
-    .header-row,
-    .header-row2 {
+    .header-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -52,9 +51,21 @@
     }
 
     .header-row2 {
-      justify-content: flex-start;
-      padding-top: 0.5rem;
-      padding-bottom: 0.5rem;
+      background: var(--navy);
+      padding: 0.8rem 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .header-row2 img {
+      height: 55px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .header-row2 img:hover {
+      transform: scale(1.08);
     }
 
     .separator {
@@ -122,34 +133,39 @@
     /* ===== MAIN BODY ===== */
     main {
       flex: 1;
-      padding-bottom: 1rem;
+      padding: 1.5rem 1rem;
     }
 
-    .video-text {
+    .video-card {
+      background: rgba(255, 255, 255, 0.9);
+      max-width: 960px;
+      margin: 0 auto;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      padding: 1.5rem;
+    }
+
+    .video-title {
       text-align: center;
-      font-size: 1.2rem;
+      font-size: 1.35rem;
       font-weight: 600;
       color: var(--navy);
-      padding: 1.5rem 1rem 0.5rem;
-      background: rgba(255, 255, 255, 0.8);
-      margin: 0 1rem;
-      border-radius: 8px;
+      margin-bottom: 1rem;
     }
 
-    .video-section {
-      display: flex;
-      justify-content: center;
-      padding: 1rem;
+    .video-title a {
+      color: var(--ocean);
+      text-decoration: underline;
     }
 
-    iframe {
+    .video-section iframe {
       width: 100%;
-      max-width: 920px;
       height: 360px;
       border: 4px solid var(--navy);
       border-radius: 10px;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
       background: #000;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
     }
 
     /* ===== FOOTER ===== */
@@ -209,8 +225,8 @@
         font-size: 1rem;
       }
 
-      .video-text {
-        font-size: 1.4rem;
+      .video-title {
+        font-size: 1.5rem;
       }
 
       .footer-icons img {
@@ -225,6 +241,7 @@
 
   <!-- HEADER -->
   <header>
+    <!-- Row 1: Logo, Share, Menu -->
     <div class="header-row">
       <button class="btn-icon" onclick="sharePage()">
         <img src="icons/share_button_seabound.svg" alt="Share">
@@ -235,10 +252,12 @@
 
     <div class="separator"></div>
 
+    <!-- Row 2: Centered Logo -->
     <div class="header-row2">
-      <img src="images/Logo4.png" alt="Logo Share" style="height: 50px;" onclick="sharePage()">
+      <img src="images/Logo4.png" alt="Logo4" onclick="sharePage()">
     </div>
 
+    <!-- Nav Links -->
     <nav id="mobileMenu">
       <a href="index.html">Home</a>
       <a href="challenge.html">The Challenge</a>
@@ -252,16 +271,20 @@
 
   <!-- MAIN -->
   <main>
-    <p class="video-text">Check out the challenge video below</p>
-    
-    <div class="video-section">
-      <iframe 
-        src="https://www.youtube.com/embed/aShIDEnI6VA" 
-        title="Seabound Siblings - Challenge Video"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen>
-      </iframe>
+    <div class="video-card">
+      <div class="video-title">
+        Get a Sneak Peek of 
+        <a href="https://www.worldstoughestrow.com" target="_blank">the World's Toughest Row</a> – Watch Below!
+      </div>
+      <div class="video-section">
+        <iframe 
+          src="https://www.youtube.com/embed/aShIDEnI6VA" 
+          title="Seabound Siblings - Challenge Video"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
     </div>
   </main>
 
