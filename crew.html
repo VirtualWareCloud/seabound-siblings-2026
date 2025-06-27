@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Crew | Seabound Siblings</title>
+  <link rel="icon" href="images/logo.png" />
+  <link rel="stylesheet" href="./components/HEADER.css" />
+  <link rel="stylesheet" href="./components/FOOTER.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #001f3f; /* Navy */
+      color: #fff;
+    }
+
+    .separator {
+      height: 3px;
+      width: 60px;
+      background: #ffcc00;
+      margin: 2rem auto;
+      border-radius: 10px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #ffffff;
+      font-size: 2.5rem;
+      margin-top: 2rem;
+    }
+
+    .crew-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin: 2rem;
+    }
+
+    .profile-card {
+      background: #ffffff;
+      color: #000;
+      border-radius: 12px;
+      padding: 1rem;
+      max-width: 300px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    }
+
+    .profile-card img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+    }
+
+    .profile-card h2 {
+      margin: 0.5rem 0;
+      font-size: 1.5rem;
+      color: #001f3f;
+    }
+
+    .profile-card p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+
+    footer {
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Injected Header -->
+  <div id="header-container"></div>
+
+  <div class="separator"></div>
+
+  <!-- Title -->
+  <h1>The Crew</h1>
+
+  <!-- Profile Cards -->
+  <div class="crew-container">
+    <!-- Jess -->
+    <div class="profile-card">
+      <img src="images/jess1.png" alt="Jessie - Team Member" />
+      <h2>Jessie</h2>
+      <p>Jessie is a passionate ocean rower with a deep love for endurance sports and ocean conservation. Her leadership and resilience make her a driving force behind the Seabound mission.</p>
+    </div>
+
+    <!-- Melissa -->
+    <div class="profile-card">
+      <img src="images/mel1.png" alt="Melissa - Team Member" />
+      <h2>Melissa</h2>
+      <p>Melissa brings creativity, grit, and unstoppable energy to the team. Her adventurous spirit and commitment to charitable causes fuel her journey across the Atlantic.</p>
+    </div>
+  </div>
+
+  <div class="separator"></div>
+
+  <!-- Image Gallery -->
+  <div class="gallery">
+    <img src="images/mel_jess1.jpeg" alt="Mel & Jess 1" />
+    <img src="images/mel_jess2.jpeg" alt="Mel & Jess 2" />
+    <img src="images/mel_jess3.jpeg" alt="Mel & Jess 3" />
+    <img src="images/mel_jess4.jpeg" alt="Mel & Jess 4" />
+    <img src="images/mel_jess5.jpeg" alt="Mel & Jess 5" />
+    <img src="images/mel_jess6.jpeg" alt="Mel & Jess 6" />
+  </div>
+
+  <div class="separator"></div>
+
+  <!-- Injected Footer -->
+  <div id="footer-container"></div>
+
+  <!-- Scripts -->
+  <script src="./components/HEADER.js"></script>
+  <script src="./components/FOOTER.js"></script>
+
+</body>
+</html>
