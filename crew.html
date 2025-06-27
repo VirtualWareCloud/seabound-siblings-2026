@@ -4,91 +4,136 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>The Crew | Seabound Siblings</title>
-  <link rel="icon" href="images/logo.png" />
-  <link rel="stylesheet" href="./components/FOOTER.css" />
+  <link rel="icon" href="images/logo.png"/>
+
   <style>
     :root {
-      --navy: #001f3f;
-      --gold: #ffcc00;
-      --light: #ffffff;
-      --text: #000000;
+      --navy:   #001f54;
+      --ocean:  #008cba;
+      --seafoam:#3bc9db;
+      --sun:    #ffbe30;
+      --light:  #f2f8ff;
+      --dark:   #0d0d0d;
     }
 
+    html, body {height:100%;margin:0}
     body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: var(--navy);
-      color: var(--light);
-    }
-
-    header {
-      background-color: #ffffff;
-      padding: 10px 20px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 999;
-    }
-
-    .nav-container {
+      font-family: "Segoe UI", sans-serif;
+      background: url("images/background.jpeg") no-repeat center/cover fixed;
+      color: var(--dark);
       display: flex;
+      flex-direction: column;
+      backdrop-filter: brightness(.95);
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ===== HEADER ===== */
+    header { background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,.05); z-index: 1000; }
+    .header-row {
+      display: flex;
+      align-items: center;
       justify-content: space-between;
+      padding: .8rem 1rem;
+    }
+    .header-row2 {
+      background: var(--navy);
+      padding: .8rem 1rem;
+      display: flex;
+      justify-content: center;
       align-items: center;
     }
-
-    .logo img {
-      height: 40px;
+    .header-row2 img {
+      height: 55px;
+      cursor: pointer;
+      transition: transform .3s;
     }
-
-    .nav-menu {
-      display: flex;
-      gap: 15px;
+    .header-row2 img:hover { transform: scale(1.08); }
+    .separator { height: 2px; background: var(--navy); }
+    .logo {
+      height: 60px;
+      max-width: 120px;
+      cursor: pointer;
+      transition: transform .3s;
     }
-
-    .nav-menu a {
-      color: #001f3f;
-      text-decoration: none;
-      font-weight: 600;
+    .logo:hover { transform: scale(1.08); }
+    .btn-icon {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: transform .3s;
     }
-
-    .separator {
-      height: 3px;
-      width: 60px;
-      background: var(--gold);
-      margin: 2rem auto;
-      border-radius: 10px;
-    }
-
-    h1 {
+    .btn-icon img { height: 32px; width: 32px; }
+    .btn-icon:hover { transform: scale(1.2); }
+    .hamburger { font-size: 2rem; }
+    nav {
+      display: none;
+      flex-direction: column;
+      background: #fff;
+      border-top: 1px solid #ddd;
       text-align: center;
+    }
+    nav a {
+      padding: 1rem;
+      font-weight: 600;
+      border-bottom: 1px solid #eee;
+      color: var(--dark);
+      transition: background .2s;
+    }
+    nav a:hover {
+      background: var(--ocean);
+      color: #fff;
+    }
+    nav.active { display: flex; }
+
+    /* ===== CREW WRAPPER ===== */
+    main {
+      flex: 1;
+      padding: 2rem 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .crew-wrapper {
+      background: rgba(255, 255, 255, .9);
+      border-radius: 12px;
+      max-width: 1200px;
+      width: 100%;
+      padding: 2rem 1.5rem;
+      box-shadow: 0 6px 18px rgba(0,0,0,.2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .crew-title {
       font-size: 2.5rem;
-      margin-top: 2rem;
-      color: var(--light);
+      font-weight: 700;
+      text-align: center;
+      color: var(--navy);
+      margin: 0 0 1rem;
     }
 
+    /* ===== PROFILE CARDS ===== */
     .card-container {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 3rem;
-      padding: 2rem;
+      margin-top: 1rem;
+      margin-bottom: 2rem;
     }
-
     .profile-card {
-      background-color: var(--light);
-      color: var(--text);
+      background: var(--light);
+      color: var(--dark);
       border-radius: 16px;
-      max-width: 300px;
+      max-width: 330px;
       padding: 1.5rem;
       text-align: center;
-      box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
-      transition: transform 0.3s ease;
+      box-shadow: 0 4px 20px rgba(0,0,0,.1);
+      transition: transform .3s;
     }
-
-    .profile-card:hover {
-      transform: translateY(-5px);
-    }
-
+    .profile-card:hover { transform: translateY(-5px); }
     .profile-card img {
       width: 100%;
       aspect-ratio: 1/1;
@@ -96,118 +141,184 @@
       border-radius: 8px;
       margin-bottom: 1rem;
     }
-
     .profile-card h2 {
-      margin: 0.5rem 0;
+      margin: .5rem 0;
       font-size: 1.6rem;
       color: var(--navy);
     }
-
     .profile-card p {
-      font-size: 0.95rem;
+      font-size: .95rem;
       line-height: 1.5;
     }
 
+    /* ===== GALLERY ===== */
     .gallery {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1.2rem;
-      padding: 2rem;
+      width: 100%;
       max-width: 1200px;
-      margin: auto;
     }
-
     .gallery img {
       width: 100%;
       border-radius: 12px;
       object-fit: cover;
-      transition: transform 0.3s ease;
+      object-position: center;
+      transition: transform .3s;
     }
+    .gallery img:hover { transform: scale(1.02); }
+    .gallery img[src*="mel_jess1.jpeg"] { object-position: center 25%; }
 
-    .gallery img:hover {
-      transform: scale(1.02);
+    /* ===== FOOTER ===== */
+    footer.site-footer {
+      background: #f4f4f4;
+      padding: 12px 6px;
+      text-align: center;
+      border-top: 3px solid var(--navy);
     }
-
-    footer {
-      margin-top: 2rem;
+    .footer-icons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 6px;
     }
+    .footer-icons img {
+      width: 34px;
+      height: 34px;
+      transition: transform .3s, filter .3s;
+      filter: grayscale(.4);
+    }
+    .footer-icons img:hover {
+      transform: scale(1.15);
+      filter: none;
+    }
+    .footer-credit {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 8px;
+      font-weight: 300;
+      font-size: 0.85rem;
+      color: var(--navy);
+    }
+    .vwc-footer-icon {
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      transition: transform .3s;
+      box-shadow: 0 2px 6px rgba(0,0,0,.15);
+    }
+    .vwc-footer-icon:hover { transform: scale(1.15); }
 
-    @media (max-width: 768px) {
-      .nav-menu {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .gallery {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      }
-
-      .card-container {
-        flex-direction: column;
-        align-items: center;
-      }
+    /* ===== RESPONSIVE ===== */
+    @media(min-width:768px){
+      .logo { height: 80px; }
+      .btn-icon img { height: 36px; width: 36px; }
+      nav a { font-size: 1rem; }
+      .crew-title { font-size: 3rem; }
+      .footer-icons img { width: 38px; height: 38px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Functional Inline Header -->
+  <!-- ===== HEADER ===== -->
   <header>
-    <div class="nav-container">
-      <div class="logo">
-        <a href="index.html"><img src="images/logo.png" alt="Seabound Logo"></a>
-      </div>
-      <nav class="nav-menu">
-        <a href="index.html">Home</a>
-        <a href="challenge.html">The Challenge</a>
-        <a href="crew.html">Crew & Story</a>
-        <a href="costs.html">Expedition Costs</a>
-        <a href="partner.html">Partner With Us</a>
-        <a href="cause.html">The Cause</a>
-        <a href="contact.html">Get In Touch</a>
-      </nav>
+    <div class="header-row">
+      <button class="btn-icon" onclick="sharePage()">
+        <img src="icons/share_button_seabound.svg" alt="Share">
+      </button>
+      <img src="images/logo2.png" class="logo" alt="Seabound Logo" onclick="location.href='index.html'">
+      <button class="btn-icon hamburger" aria-label="Toggle menu" onclick="toggleMenu()">☰</button>
     </div>
+    <div class="separator"></div>
+    <div class="header-row2">
+      <a href="https://www.worldstoughestrow.com" target="_blank" rel="noopener">
+        <img src="images/Logo4.png" alt="World’s Toughest Row logo">
+      </a>
+    </div>
+    <nav id="mobileMenu">
+      <a href="index.html">Home</a>
+      <a href="challenge.html">The Challenge</a>
+      <a href="crew.html">Crew & Story</a>
+      <a href="costs.html">Expedition Costs</a>
+      <a href="partner.html">Partner With Us</a>
+      <a href="cause.html">The Cause</a>
+      <a href="contact-us.html">Get In Touch</a>
+    </nav>
   </header>
 
-  <div class="separator"></div>
+  <!-- ===== MAIN ===== -->
+  <main>
+    <div class="crew-wrapper">
+      <h1 class="crew-title">The Crew</h1>
+      <div class="card-container">
+        <div class="profile-card">
+          <img src="images/jess1.png" alt="Jessie - Team Member" />
+          <h2>Jessie</h2>
+          <p>Jessie is a passionate ocean rower with a deep love for endurance sports and ocean conservation. Her leadership and resilience make her a driving force behind the Seabound mission.</p>
+        </div>
+        <div class="profile-card">
+          <img src="images/mel1.png" alt="Melissa - Team Member" />
+          <h2>Melissa</h2>
+          <p>Melissa brings creativity, grit, and unstoppable energy to the team. Her adventurous spirit and commitment to charitable causes fuel her journey across the Atlantic.</p>
+        </div>
+      </div>
 
-  <!-- Title -->
-  <h1>The Crew</h1>
-
-  <!-- Profile Cards Section -->
-  <div class="card-container">
-    <!-- Jessie -->
-    <div class="profile-card">
-      <img src="images/jess1.png" alt="Jessie - Team Member" />
-      <h2>Jessie</h2>
-      <p>Jessie is a passionate ocean rower with a deep love for endurance sports and ocean conservation. Her leadership and resilience make her a driving force behind the Seabound mission.</p>
+      <div class="gallery">
+        <img src="images/mel_jess2.png" alt="Mel & Jess 1" />
+        <img src="images/mel_jess1.jpeg" alt="Mel & Jess 2" />
+        <img src="images/mel_jess3.png" alt="Mel & Jess 3" />
+        <img src="images/mel_jess4.jpeg" alt="Mel & Jess 4" />
+        <img src="images/mel_jess5.jpeg" alt="Mel & Jess 5" />
+        <img src="images/mel_jess6.jpeg" alt="Mel & Jess 6" />
+      </div>
     </div>
+  </main>
 
-    <!-- Melissa -->
-    <div class="profile-card">
-      <img src="images/mel1.png" alt="Melissa - Team Member" />
-      <h2>Melissa</h2>
-      <p>Melissa brings creativity, grit, and unstoppable energy to the team. Her adventurous spirit and commitment to charitable causes fuel her journey across the Atlantic.</p>
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="footer-icons">
+      <a href="mailto:seaboundsiblings@gmail.com"><img src="icons/email.svg" alt="Email" /></a>
+      <a href="https://www.youtube.com/channel/UCJVdgMSLq38Sue1rg36GwoQ" target="_blank"><img src="icons/youtube.svg" alt="YouTube" /></a>
+      <a href="https://facebook.com/seaboundsiblings" target="_blank"><img src="icons/facebook.svg" alt="Facebook" /></a>
+      <a href="https://instagram.com/seaboundsiblings" target="_blank"><img src="icons/instagram.svg" alt="Instagram" /></a>
+      <a href="invest.html"><img src="icons/donate.svg" alt="Donate" /></a>
     </div>
-  </div>
+    <div class="footer-credit">
+      <span>Designed By</span>
+      <a href="https://virtualwarecloud.github.io/services" target="_blank" title="VirtualWareCloud" style="display:flex;align-items:center;gap:4px;margin-left:6px;">
+        <img src="icons/virtualwarecloud.png" alt="VirtualWareCloud Logo Icon" class="vwc-footer-icon" />
+        <span>VirtualWareCloud</span>
+      </a>
+    </div>
+  </footer>
 
-  <div class="separator"></div>
+  <!-- ===== JS SCRIPTS ===== -->
+  <script>
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('active');
+    }
 
-  <!-- Image Gallery Section -->
-  <div class="gallery">
-    <img src="images/mel_jess2.png" alt="Mel & Jess 1" />
-    <img src="images/mel_jess1.jpeg" alt="Mel & Jess 2" />
-    <img src="images/mel_jess3.png" alt="Mel & Jess 3" />
-    <img src="images/mel_jess4.jpeg" alt="Mel & Jess 4" />
-    <img src="images/mel_jess5.jpeg" alt="Mel & Jess 5" />
-    <img src="images/mel_jess6.jpeg" alt="Mel & Jess 6" />
-  </div>
-
-  <div class="separator"></div>
-
-  <!-- Footer -->
-  <div id="footer-container"></div>
-  <script src="./components/FOOTER.js"></script>
+    async function sharePage() {
+      const shareData = {
+        title: 'Seabound Siblings – World’s Toughest Row',
+        text: 'Support our journey across the Atlantic!',
+        url: window.location.href
+      };
+      try {
+        if (navigator.share) {
+          await navigator.share(shareData);
+        } else {
+          prompt("Copy this link & share it:", window.location.href);
+        }
+      } catch (err) {
+        console.error('Share failed:', err);
+      }
+    }
+  </script>
 
 </body>
 </html>
