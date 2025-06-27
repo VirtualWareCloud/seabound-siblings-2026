@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>The Crew | Seabound Siblings</title>
   <link rel="icon" href="images/logo.png" />
-  <link rel="stylesheet" href="./components/HEADER.css" />
   <link rel="stylesheet" href="./components/FOOTER.css" />
   <style>
     :root {
@@ -20,6 +19,36 @@
       font-family: 'Segoe UI', sans-serif;
       background-color: var(--navy);
       color: var(--light);
+    }
+
+    header {
+      background-color: #ffffff;
+      padding: 10px 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 40px;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 15px;
+    }
+
+    .nav-menu a {
+      color: #001f3f;
+      text-decoration: none;
+      font-weight: 600;
     }
 
     .separator {
@@ -103,7 +132,16 @@
       margin-top: 2rem;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
+      .nav-menu {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      }
+
       .card-container {
         flex-direction: column;
         align-items: center;
@@ -113,8 +151,23 @@
 </head>
 <body>
 
-  <!-- Injected Animated Header -->
-  <div id="header-container"></div>
+  <!-- Functional Inline Header -->
+  <header>
+    <div class="nav-container">
+      <div class="logo">
+        <a href="index.html"><img src="images/logo.png" alt="Seabound Logo"></a>
+      </div>
+      <nav class="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="challenge.html">The Challenge</a>
+        <a href="crew.html">Crew & Story</a>
+        <a href="costs.html">Expedition Costs</a>
+        <a href="partner.html">Partner With Us</a>
+        <a href="cause.html">The Cause</a>
+        <a href="contact.html">Get In Touch</a>
+      </nav>
+    </div>
+  </header>
 
   <div class="separator"></div>
 
@@ -152,11 +205,8 @@
 
   <div class="separator"></div>
 
-  <!-- Injected Footer -->
+  <!-- Footer -->
   <div id="footer-container"></div>
-
-  <!-- Header and Footer Scripts -->
-  <script src="./components/HEADER.js"></script>
   <script src="./components/FOOTER.js"></script>
 
 </body>
