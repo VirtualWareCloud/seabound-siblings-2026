@@ -23,10 +23,12 @@
 
     body {
       font-family: "Segoe UI", sans-serif;
-      background: linear-gradient(180deg, var(--light) 0%, #ffffff 40%, var(--seafoam) 100%);
+      background: url("images/background.jpeg") no-repeat center center fixed;
+      background-size: cover;
       color: var(--dark);
       display: flex;
       flex-direction: column;
+      backdrop-filter: brightness(0.95);
     }
 
     a {
@@ -129,6 +131,9 @@
       font-weight: 600;
       color: var(--navy);
       padding: 1.5rem 1rem 0.5rem;
+      background: rgba(255, 255, 255, 0.8);
+      margin: 0 1rem;
+      border-radius: 8px;
     }
 
     .video-section {
@@ -137,13 +142,14 @@
       padding: 1rem;
     }
 
-    video {
+    iframe {
       width: 100%;
-      max-width: 100%;
-      height: auto;
-      border: 3px solid var(--navy);
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,.2);
+      max-width: 920px;
+      height: 360px;
+      border: 4px solid var(--navy);
+      border-radius: 10px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      background: #000;
     }
 
     /* ===== FOOTER ===== */
@@ -233,8 +239,6 @@
       <img src="images/Logo4.png" alt="Logo Share" style="height: 50px;" onclick="sharePage()">
     </div>
 
-    
-
     <nav id="mobileMenu">
       <a href="index.html">Home</a>
       <a href="challenge.html">The Challenge</a>
@@ -250,19 +254,15 @@
   <main>
     <p class="video-text">Check out the challenge video below</p>
     
-<!-- video -->
-<div class="video-section">
-  <iframe width="100%" height="360" 
-    src="https://www.youtube.com/embed/aShIDEnI6VA" 
-    title="Seabound Siblings - Challenge Video"
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowfullscreen
-    style="max-width: 920px; border: 4px solid var(--navy); border-radius: 10px; box-shadow: 0 6px 12px rgba(0,0,0,0.15);">
-  </iframe>
-</div>
-
-    
+    <div class="video-section">
+      <iframe 
+        src="https://www.youtube.com/embed/aShIDEnI6VA" 
+        title="Seabound Siblings - Challenge Video"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+    </div>
   </main>
 
   <!-- FOOTER -->
