@@ -7,6 +7,7 @@
   <link rel="icon" href="images/logo.png"/>
 
   <style>
+    /* ===== Color Variables ===== */
     :root {
       --navy:   #001f54;
       --ocean:  #008cba;
@@ -16,84 +17,185 @@
       --dark:   #0d0d0d;
     }
 
-    html, body {height:100%;margin:0}
+    /* ===== Global Layout and Typography ===== */
+    html, body { height: 100%; margin: 0; }
     body {
-      font-family:"Segoe UI",sans-serif;
-      background:url("images/background.jpeg") no-repeat center/cover fixed;
-      color:var(--dark);
-      display:flex;
-      flex-direction:column;
-      backdrop-filter:brightness(.95);
+      font-family: "Segoe UI", sans-serif;
+      background: url("images/background.jpeg") no-repeat center/cover fixed;
+      color: var(--dark);
+      display: flex;
+      flex-direction: column;
+      backdrop-filter: brightness(.95);
     }
+    a { color: inherit; text-decoration: none; }
 
-    a {color:inherit;text-decoration:none}
+    /* ===== Header Section ===== */
+    header {
+      background: #fff;
+      box-shadow: 0 2px 4px rgba(0,0,0,.05);
+      z-index: 1000;
+    }
+    .header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: .8rem 1rem;
+    }
+    .header-row2 {
+      background: var(--navy);
+      padding: .8rem 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .header-row2 img {
+      height: 55px;
+      cursor: pointer;
+      transition: transform .3s;
+    }
+    .header-row2 img:hover {
+      transform: scale(1.08);
+    }
+    .separator { height: 2px; background: var(--navy); }
+    .logo {
+      height: 60px;
+      max-width: 120px;
+      cursor: pointer;
+      transition: transform .3s;
+    }
+    .logo:hover { transform: scale(1.08); }
+    .btn-icon {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: transform .3s;
+    }
+    .btn-icon img { height: 32px; width: 32px; }
+    .btn-icon:hover { transform: scale(1.2); }
+    .hamburger { font-size: 2rem; }
+    nav {
+      display: none;
+      flex-direction: column;
+      background: #fff;
+      border-top: 1px solid #ddd;
+      text-align: center;
+    }
+    nav a {
+      padding: 1rem;
+      font-weight: 600;
+      border-bottom: 1px solid #eee;
+      color: var(--dark);
+      transition: background .2s;
+    }
+    nav a:hover {
+      background: var(--ocean);
+      color: #fff;
+    }
+    nav.active { display: flex; }
 
-    header {background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.05);z-index:1000}
-    .header-row {display:flex;align-items:center;justify-content:space-between;padding:.8rem 1rem}
-    .header-row2 {background:var(--navy);padding:.8rem 1rem;display:flex;justify-content:center;align-items:center}
-    .header-row2 img {height:55px;cursor:pointer;transition:transform .3s}
-    .header-row2 img:hover {transform:scale(1.08)}
-    .separator {height:2px;background:var(--navy)}
-    .logo {height:60px;max-width:120px;cursor:pointer;transition:transform .3s}
-    .logo:hover {transform:scale(1.08)}
-    .btn-icon {background:none;border:none;cursor:pointer;padding:0;transition:transform .3s}
-    .btn-icon img {height:32px;width:32px}
-    .btn-icon:hover {transform:scale(1.2)}
-    .hamburger {font-size:2rem}
-    nav {display:none;flex-direction:column;background:#fff;border-top:1px solid #ddd;text-align:center}
-    nav a {padding:1rem;font-weight:600;border-bottom:1px solid #eee;color:var(--dark);transition:background .2s}
-    nav a:hover {background:var(--ocean);color:#fff}
-    nav.active {display:flex}
-
-    main {flex:1;padding:1.5rem 1rem}
+    /* ===== Main Body Section ===== */
+    main {
+      flex: 1;
+      padding: 1.5rem 1rem;
+    }
     .card-container {
-      background:rgba(255,255,255,.9);
-      max-width:1000px;margin:0 auto;border-radius:12px;
-      box-shadow:0 6px 18px rgba(0,0,0,.2);overflow:hidden;padding:2rem;
-      display:flex;flex-direction:column;gap:2rem
+      background: rgba(255,255,255,.9);
+      max-width: 1000px;
+      margin: 0 auto;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,.2);
+      overflow: hidden;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
     }
     .card-content {
-      display:flex;flex-direction:column;
+      display: flex;
+      flex-direction: column;
     }
     @media(min-width:768px){
       .card-content {
-        flex-direction:row;gap:2rem;align-items:flex-start
+        flex-direction: row;
+        gap: 2rem;
+        align-items: flex-start;
       }
     }
 
     .card-left, .card-right {
-      flex:1;
+      flex: 1;
     }
     .card-title {
-      text-align:center;
-      font-size:1.7rem;
-      font-weight:600;
-      color:var(--navy);
-      margin-bottom:1.2rem;
+      text-align: center;
+      font-size: 1.7rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 1.2rem;
     }
     .card-text {
-      font-size:1rem;
-      line-height:1.7;
-      color:#222;
-      text-align:justify;
-    }
-    .card-image {
-      text-align:center;
-      margin-top:1.5rem;
-    }
-    .card-image img {
-      max-width:100%;
-      height:auto;
-      border-radius:8px;
-      box-shadow:0 4px 12px rgba(0,0,0,0.15);
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #222;
+      text-align: justify;
     }
 
-    footer.site-footer {background:#f4f4f4;padding:12px 6px;text-align:center;border-top:3px solid var(--navy)}
-    .footer-icons {display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-bottom:6px}
-    .footer-icons img {width:34px;height:34px;transition:transform .3s,filter .3s;filter:grayscale(.4)}
-    .footer-icons img:hover {transform:scale(1.15);filter:none}
-    .footer-credit {display:flex;justify-content:center;align-items:center;margin-top:8px;font-weight:300;font-size:0.85rem;color:#001f54}
-    .footer-credit img {height:22px;width:22px;border-radius:50%;object-fit:cover;margin-left:6px;box-shadow:0 1px 3px rgba(0,0,0,.1)}
+    /* ===== Map Image Styling with Top Control ===== */
+    .card-image {
+      text-align: center;
+      position: relative;
+    }
+    .map-adjust {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      position: relative;
+      top: 20px; /* You can change this value as needed */
+      transition: top 0.3s ease;
+    }
+
+    /* ===== Footer Section ===== */
+    footer.site-footer {
+      background: #f4f4f4;
+      padding: 12px 6px;
+      text-align: center;
+      border-top: 3px solid var(--navy);
+    }
+    .footer-icons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+    .footer-icons img {
+      width: 34px;
+      height: 34px;
+      transition: transform .3s, filter .3s;
+      filter: grayscale(.4);
+    }
+    .footer-icons img:hover {
+      transform: scale(1.15);
+      filter: none;
+    }
+    .footer-credit {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 8px;
+      font-weight: 300;
+      font-size: 0.85rem;
+      color: #001f54;
+    }
+    .footer-credit img {
+      height: 22px;
+      width: 22px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-left: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,.1);
+    }
   </style>
 </head>
 <body>
@@ -127,7 +229,7 @@
     </nav>
   </header>
 
-  <!-- ===== BODY ===== -->
+  <!-- ===== MAIN BODY ===== -->
   <main>
     <div class="card-container">
       <div class="card-content">
@@ -138,7 +240,7 @@
           </div>
         </div>
         <div class="card-right card-image">
-          <img src="images/Map1.png" alt="Challenge Route Map">
+          <img src="images/Map1.png" alt="Challenge Route Map" class="map-adjust">
         </div>
       </div>
     </div>
@@ -162,12 +264,14 @@
     </div>
   </footer>
 
-  <!-- ===== SCRIPTS ===== -->
+  <!-- ===== JAVASCRIPT ===== -->
   <script>
+    // Toggle mobile navigation
     function toggleMenu() {
       document.getElementById('mobileMenu').classList.toggle('active');
     }
 
+    // Native Share API with fallback
     async function sharePage() {
       const shareData = {
         title: 'Seabound Siblings – World’s Toughest Row',
