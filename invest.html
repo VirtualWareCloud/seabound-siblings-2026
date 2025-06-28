@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Invest | Seabound Siblings</title>
+  <link rel="icon" href="images/logo.png"/>
+
+  <style>
+    :root{
+      --navy:#001f54;
+      --ocean:#008cba;
+      --seafoam:#3bc9db;
+      --sun:#ffbe30;
+      --light:#f2f8ff;
+      --dark:#0d0d0d;
+    }
+
+    html,body{height:100%;margin:0}
+    body{
+      font-family:"Segoe UI",sans-serif;
+      background:url("images/background.jpeg") no-repeat center/cover fixed;
+      color:var(--dark);
+      display:flex;
+      flex-direction:column;
+      backdrop-filter:brightness(.95);
+    }
+    a{color:inherit;text-decoration:none}
+
+    /* ===== HEADER ===== */
+    header{background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.05);z-index:1000}
+    .header-row{display:flex;align-items:center;justify-content:space-between;padding:.8rem 1rem}
+    .header-row2{background:var(--navy);padding:.8rem 1rem;display:flex;justify-content:center;align-items:center}
+    .header-row2 img{height:55px;cursor:pointer;transition:transform .3s}
+    .header-row2 img:hover{transform:scale(1.08)}
+    .separator{height:2px;background:var(--navy)}
+    .logo{height:60px;max-width:120px;cursor:pointer;transition:transform .3s}
+    .logo:hover{transform:scale(1.08)}
+    .btn-icon{background:none;border:none;cursor:pointer;padding:0;transition:transform .3s}
+    .btn-icon img{height:32px;width:32px}
+    .btn-icon:hover{transform:scale(1.2)}
+    .hamburger{font-size:2rem}
+    nav{display:none;flex-direction:column;background:#fff;border-top:1px solid #ddd;text-align:center}
+    nav a{padding:1rem;font-weight:600;border-bottom:1px solid #eee;color:var(--dark);transition:background .2s}
+    nav a:hover{background:var(--ocean);color:#fff}
+    nav.active{display:flex}
+
+    /* ===== MAIN ===== */
+    main{flex:1;padding:2rem 1rem;display:flex;flex-direction:column;align-items:center}
+    .invest-wrapper{
+      background:rgba(255,255,255,.92);
+      border-radius:12px;
+      max-width:1100px;
+      width:100%;
+      padding:2rem;
+      box-shadow:0 6px 18px rgba(0,0,0,.15);
+    }
+    .page-title{font-size:2.5rem;font-weight:700;color:var(--navy);text-align:center;margin-bottom:1.2rem}
+
+    .intro{text-align:center;font-size:1.05rem;line-height:1.6;margin-bottom:2rem}
+
+    .pay-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:1.5rem;
+    }
+    .pay-card{
+      background:var(--light);
+      border-radius:10px;
+      padding:1.5rem;
+      text-align:center;
+      box-shadow:0 4px 12px rgba(0,0,0,.1);
+      transition:transform .3s;
+    }
+    .pay-card:hover{transform:translateY(-6px)}
+    .pay-card h3{margin-top:0;color:var(--navy)}
+    .pay-btn{
+      display:inline-block;
+      background:var(--sun);
+      color:var(--dark);
+      font-weight:700;
+      padding:.8rem 1.4rem;
+      border-radius:8px;
+      margin-top:1rem;
+      transition:background .3s;
+    }
+    .pay-btn:hover{background:#ffdb4d}
+    .qr-code{width:150px;height:150px;object-fit:contain;margin:1rem auto}
+    .eft-table{width:100%;border-collapse:collapse;margin-top:.5rem;font-size:.95rem}
+    .eft-table td{padding:.4rem;border:1px solid #ccc}
+    .eft-table td:first-child{font-weight:600;background:#fffde6}
+
+    /* ===== FOOTER ===== */
+    footer.site-footer{background:#f4f4f4;padding:12px 6px;text-align:center;border-top:3px solid var(--navy)}
+    .footer-icons{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-bottom:6px}
+    .footer-icons img{width:34px;height:34px;transition:transform .3s,filter .3s;filter:grayscale(.4)}
+    .footer-icons img:hover{transform:scale(1.15);filter:none}
+    .footer-credit{display:flex;justify-content:center;align-items:center;margin-top:8px;font-weight:300;font-size:.85rem;color:var(--navy)}
+    .vwc-footer-icon{height:40px;width:40px;border-radius:50%;object-fit:cover;transition:transform .3s;box-shadow:0 2px 6px rgba(0,0,0,.15)}
+    .vwc-footer-icon:hover{transform:scale(1.15)}
+
+    @media(min-width:768px){
+      .logo{height:80px}
+      .btn-icon img{height:36px;width:36px}
+      nav a{font-size:1rem}
+      .page-title{font-size:3rem}
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <div class="header-row">
+    <button class="btn-icon" onclick="sharePage()">
+      <img src="icons/share_button_seabound.svg" alt="Share">
+    </button>
+    <img src="images/logo2.png" class="logo" alt="Seabound Logo" onclick="location.href='index.html'">
+    <button class="btn-icon hamburger" aria-label="Toggle menu" onclick="toggleMenu()">☰</button>
+  </div>
+  <div class="separator"></div>
+  <div class="header-row2">
+    <a href="https://www.worldstoughestrow.com" target="_blank">
+      <img src="images/Logo4.png" alt="World’s Toughest Row logo">
+    </a>
+  </div>
+  <nav id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="challenge.html">The Challenge</a>
+    <a href="crew.html">The Crew</a>
+    <a href="costs.html">Expedition Costs</a>
+    <a href="partner.html">Partner With Us</a>
+    <a href="cause.html">The Cause</a>
+    <a href="invest.html">Invest</a>
+    <a href="contact-us.html">Get In Touch</a>
+  </nav>
+</header>
+
+<!-- ===== MAIN ===== -->
+<main>
+  <div class="invest-wrapper">
+    <h1 class="page-title">Invest in Our Journey</h1>
+    <p class="intro">
+      Every contribution propels us closer to the start line in La Gomera and toward our
+      3,000-mile row across the Atlantic. Pick the payment method that suits you best—
+      all funds go directly to expedition costs and our chosen charities.
+    </p>
+
+    <div class="pay-grid">
+      <!-- PayPal -->
+      <div class="pay-card">
+        <h3>PayPal</h3>
+        <p>Global supporters can donate securely via PayPal.</p>
+        <form action="https://www.paypal.com/donate" method="post" target="_blank">
+          <input type="hidden" name="business" value="donations@seaboundsiblings.com">
+          <input type="hidden" name="item_name" value="Support Seabound Siblings Atlantic Row">
+          <input type="hidden" name="currency_code" value="USD">
+          <button type="submit" class="pay-btn">Donate via PayPal</button>
+        </form>
+      </div>
+
+      <!-- Stripe -->
+      <div class="pay-card">
+        <h3>Stripe (Credit/Debit Card)</h3>
+        <p>Pay with any international card through a secure Stripe checkout.</p>
+        <!-- Dummy checkout link -->
+        <a href="https://buy.stripe.com/test_00g5nVd3Rdp4c6Y5kk" class="pay-btn" target="_blank">Pay via Stripe</a>
+      </div>
+
+      <!-- Yoco -->
+      <div class="pay-card">
+        <h3>Yoco Link (SA Cards)</h3>
+        <p>South African card holders can contribute through Yoco’s easy payment link.</p>
+        <a href="https://pay.yoco.com/seabound-siblings-test-link" class="pay-btn" target="_blank">Yoco Secure Pay</a>
+      </div>
+
+      <!-- SnapScan -->
+      <div class="pay-card">
+        <h3>SnapScan</h3>
+        <p>Scan the QR code with SnapScan to donate instantly.</p>
+        <img src="images/snapscan_qr_placeholder.png" alt="SnapScan QR" class="qr-code">
+      </div>
+
+      <!-- Zapper -->
+      <div class="pay-card">
+        <h3>Zapper</h3>
+        <p>Prefer Zapper? Scan &amp; donate in seconds.</p>
+        <img src="images/zapper_qr_placeholder.png" alt="Zapper QR" class="qr-code">
+      </div>
+
+      <!-- Direct EFT -->
+      <div class="pay-card">
+        <h3>Direct EFT / Bank Transfer</h3>
+        <p>Ideal for large sponsorship amounts.</p>
+        <table class="eft-table">
+          <tr><td>Account Name</td><td>Seabound Siblings NPC</td></tr>
+          <tr><td>Bank</td><td>Example Bank SA</td></tr>
+          <tr><td>Account No.</td><td>123 456 7890</td></tr>
+          <tr><td>Branch Code</td><td>051001</td></tr>
+          <tr><td>SWIFT/BIC</td><td>EXSAZAJJ</td></tr>
+          <tr><td>Reference</td><td>Your Name / Company</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-icons">
+    <a href="mailto:seaboundsiblings@gmail.com"><img src="icons/email.svg" alt="Email"></a>
+    <a href="https://www.youtube.com/channel/UCJVdgMSLq38Sue1rg36GwoQ" target="_blank"><img src="icons/youtube.svg" alt="YouTube"></a>
+    <a href="https://facebook.com/seaboundsiblings" target="_blank"><img src="icons/facebook.svg" alt="Facebook"></a>
+    <a href="https://instagram.com/seaboundsiblings" target="_blank"><img src="icons/instagram.svg" alt="Instagram"></a>
+    <a href="invest.html"><img src="icons/donate.svg" alt="Donate"></a>
+  </div>
+  <div class="footer-credit">
+    <span>Designed By</span>
+    <a href="https://virtualwarecloud.github.io/services" target="_blank" style="display:flex;align-items:center;gap:4px;margin-left:6px;">
+      <img src="icons/virtualwarecloud.png" alt="VirtualWareCloud Logo" class="vwc-footer-icon">
+      <span>VirtualWareCloud</span>
+    </a>
+  </div>
+</footer>
+
+<!-- ===== JS ===== -->
+<script>
+  function toggleMenu(){
+    document.getElementById('mobileMenu').classList.toggle('active');
+  }
+  async function sharePage(){
+    const shareData={
+      title:'Seabound Siblings – Invest in Our Row',
+      text:'Support our 3,000-mile Atlantic crossing!',
+      url:window.location.href
+    };
+    try{
+      if(navigator.share){
+        await navigator.share(shareData);
+      }else{
+        prompt("Copy this link & share it:", window.location.href);
+      }
+    }catch(err){
+      console.error('Share failed:',err);
+    }
+  }
+</script>
+</body>
+</html>
