@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Expedition Costs | Seabound Siblings</title>
+  <link rel="icon" href="images/logo.png" />
+
+  <style>
+    :root{
+      --navy:   #001f54;
+      --ocean:  #008cba;
+      --seafoam:#3bc9db;
+      --sun:    #ffbe30;
+      --light:  #f2f8ff;
+      --dark:   #0d0d0d;
+    }
+
+    html,body{height:100%;margin:0}
+    body{
+      font-family:"Segoe UI",sans-serif;
+      background:url("images/background.jpeg") no-repeat center/cover fixed;
+      color:var(--dark);
+      display:flex;
+      flex-direction:column;
+      backdrop-filter:brightness(.95);
+    }
+    a{color:inherit;text-decoration:none}
+
+    /* ========== HEADER (identical to index.html) ========== */
+    header{background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.05);z-index:1000}
+    .header-row{display:flex;align-items:center;justify-content:space-between;padding:.8rem 1rem}
+    .header-row2{background:var(--navy);padding:.8rem 1rem;display:flex;justify-content:center;align-items:center}
+    .header-row2 img{height:55px;cursor:pointer;transition:transform .3s}
+    .header-row2 img:hover{transform:scale(1.08)}
+    .separator{height:2px;background:var(--navy)}
+    .logo{height:60px;max-width:120px;cursor:pointer;transition:transform .3s}
+    .logo:hover{transform:scale(1.08)}
+    .btn-icon{background:none;border:none;cursor:pointer;padding:0;transition:transform .3s}
+    .btn-icon img{height:32px;width:32px}
+    .btn-icon:hover{transform:scale(1.2)}
+    .hamburger{font-size:2rem}
+    nav{display:none;flex-direction:column;background:#fff;border-top:1px solid #ddd;text-align:center}
+    nav a{padding:1rem;font-weight:600;border-bottom:1px solid #eee;color:var(--dark);transition:background .2s}
+    nav a:hover{background:var(--ocean);color:#fff}
+    nav.active{display:flex}
+
+    /* ========== MAIN WRAPPER ========== */
+    main{flex:1;padding:2rem 1rem;display:flex;flex-direction:column;align-items:center}
+    .costs-wrapper{
+      background:rgba(255,255,255,.9);
+      border-radius:12px;
+      max-width:1200px;
+      width:100%;
+      padding:2rem 1.5rem;
+      box-shadow:0 6px 18px rgba(0,0,0,.2);
+    }
+    .page-title{font-size:2.5rem;font-weight:700;text-align:center;color:var(--navy);margin:0 0 1.5rem}
+
+    /* SUMMARY BLURB */
+    .summary{font-size:1.05rem;line-height:1.6;margin-bottom:2rem;text-align:center}
+
+    /* TABLE */
+    .cost-table{
+      width:100%;
+      border-collapse:collapse;
+      margin-bottom:2rem;
+    }
+    .cost-table th,
+    .cost-table td{
+      padding:0.9rem;
+      border:1px solid #ddd;
+      text-align:left;
+    }
+    .cost-table thead th{
+      background:var(--navy);
+      color:#fff;
+      font-weight:600;
+    }
+    .cost-table tfoot td{
+      font-weight:700;
+      background:var(--sun);
+    }
+
+    /* SPONSOR TIERS */
+    .tiers{display:flex;flex-wrap:wrap;justify-content:center;gap:1.5rem}
+    .tier-card{
+      flex:1 1 260px;
+      background:var(--light);
+      border-radius:10px;
+      padding:1.2rem;
+      box-shadow:0 4px 12px rgba(0,0,0,.1);
+      text-align:center;
+      transition:transform .3s;
+    }
+    .tier-card:hover{transform:translateY(-6px)}
+    .tier-name{font-size:1.3rem;font-weight:600;color:var(--navy)}
+    .tier-amt{font-size:1.8rem;font-weight:700;margin:.4rem 0;color:var(--dark)}
+    .tier-list{list-style:none;padding:0;margin:0;font-size:.95rem;line-height:1.5}
+
+    /* ========== FOOTER (identical) ========== */
+    footer.site-footer{background:#f4f4f4;padding:12px 6px;text-align:center;border-top:3px solid var(--navy)}
+    .footer-icons{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-bottom:6px}
+    .footer-icons img{width:34px;height:34px;transition:transform .3s,filter .3s;filter:grayscale(.4)}
+    .footer-icons img:hover{transform:scale(1.15);filter:none}
+    .footer-credit{display:flex;justify-content:center;align-items:center;margin-top:8px;font-weight:300;font-size:.85rem;color:var(--navy)}
+    .vwc-footer-icon{height:40px;width:40px;border-radius:50%;object-fit:cover;transition:transform .3s;box-shadow:0 2px 6px rgba(0,0,0,.15)}
+    .vwc-footer-icon:hover{transform:scale(1.15)}
+
+    /* ========== RESPONSIVE ========== */
+    @media(min-width:768px){
+      .logo{height:80px}
+      .btn-icon img{height:36px;width:36px}
+      nav a{font-size:1rem}
+      .page-title{font-size:3rem}
+      .footer-icons img{width:38px;height:38px}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="header-row">
+      <button class="btn-icon" onclick="sharePage()">
+        <img src="icons/share_button_seabound.svg" alt="Share">
+      </button>
+      <img src="images/logo2.png" class="logo" alt="Seabound Logo" onclick="location.href='index.html'">
+      <button class="btn-icon hamburger" aria-label="Toggle menu" onclick="toggleMenu()">☰</button>
+    </div>
+    <div class="separator"></div>
+    <div class="header-row2">
+      <a href="https://www.worldstoughestrow.com" target="_blank" rel="noopener">
+        <img src="images/Logo4.png" alt="World’s Toughest Row logo">
+      </a>
+    </div>
+    <nav id="mobileMenu">
+      <a href="index.html">Home</a>
+      <a href="challenge.html">The Challenge</a>
+      <a href="crew.html">The Crew</a>
+      <a href="costs.html">Expedition Costs</a>
+      <a href="partner.html">Partner With Us</a>
+      <a href="cause.html">The Cause</a>
+      <a href="contact-us.html">Get In Touch</a>
+    </nav>
+  </header>
+
+  <!-- ===== MAIN ===== -->
+  <main>
+    <div class="costs-wrapper">
+      <h1 class="page-title">Expedition Costs</h1>
+
+      <!-- Summary -->
+      <p class="summary">
+        Rowing 3,000 miles unsupported across the Atlantic is an extraordinary undertaking that
+        carries <strong>extraordinary costs</strong>.  Our estimated budget for a two-person crew is
+        <strong>USD $180,000 – $200,000</strong>, covering everything from the race entry fee and boat,
+        to safety gear, shipping, and contingency funds.  A transparent cost breakdown is shown
+        below so every sponsor and supporter knows exactly where funds go.
+      </p>
+
+      <!-- Cost Table -->
+      <table class="cost-table">
+        <thead>
+          <tr><th scope="col">Budget Item</th><th scope="col">Estimated Cost (USD)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Race Entry Fee</td><td>$25,000</td></tr>
+          <tr><td>Ocean Rowing Boat (new, fully equipped)</td><td>$70,000</td></tr>
+          <tr><td>Safety & Navigation Equipment</td><td>$40,000</td></tr>
+          <tr><td>Shipping & Logistics (UK ↔ La Gomera ↔ Antigua)</td><td>$20,000</td></tr>
+          <tr><td>Food & Provisions (2 × 70 days @ 6,000 kcal)</td><td>$10,000</td></tr>
+          <tr><td>Training Courses & Qualifications</td><td>$5,000</td></tr>
+          <tr><td>Insurance & Contingency Reserve</td><td>$10,000</td></tr>
+        </tbody>
+        <tfoot>
+          <tr><td>Total Expedition Budget</td><td>$180,000</td></tr>
+        </tfoot>
+      </table>
+
+      <!-- Sponsorship Tiers -->
+      <h2 style="text-align:center;color:var(--navy);margin-bottom:1rem">Sponsorship Tiers</h2>
+      <div class="tiers">
+        <div class="tier-card">
+          <div class="tier-name">Bronze</div>
+          <div class="tier-amt">$1,000+</div>
+          <ul class="tier-list">
+            <li>Logo on website</li>
+            <li>Social-media shout-outs</li>
+            <li>Quarterly progress updates</li>
+          </ul>
+        </div>
+        <div class="tier-card">
+          <div class="tier-name">Silver</div>
+          <div class="tier-amt">$5,000+</div>
+          <ul class="tier-list">
+            <li>All Bronze perks</li>
+            <li>Logo on team banner & shirts</li>
+            <li>Invitation to launch event</li>
+          </ul>
+        </div>
+        <div class="tier-card">
+          <div class="tier-name">Gold</div>
+          <div class="tier-amt">$15,000+</div>
+          <ul class="tier-list">
+            <li>All Silver perks</li>
+            <li>Large logo on boat hull</li>
+            <li>Feature in media releases</li>
+          </ul>
+        </div>
+        <div class="tier-card">
+          <div class="tier-name">Title Partner</div>
+          <div class="tier-amt">Custom</div>
+          <ul class="tier-list">
+            <li>Primary branding on boat & oars</li>
+            <li>Documentary naming rights</li>
+            <li>Corporate speaking engagements</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="footer-icons">
+      <a href="mailto:seaboundsiblings@gmail.com"><img src="icons/email.svg" alt="Email"></a>
+      <a href="https://www.youtube.com/channel/UCJVdgMSLq38Sue1rg36GwoQ" target="_blank"><img src="icons/youtube.svg" alt="YouTube"></a>
+      <a href="https://facebook.com/seaboundsiblings" target="_blank"><img src="icons/facebook.svg" alt="Facebook"></a>
+      <a href="https://instagram.com/seaboundsiblings" target="_blank"><img src="icons/instagram.svg" alt="Instagram"></a>
+      <a href="invest.html"><img src="icons/donate.svg" alt="Donate"></a>
+    </div>
+    <div class="footer-credit">
+      <span>Designed By</span>
+      <a href="https://virtualwarecloud.github.io/services" target="_blank" title="VirtualWareCloud" style="display:flex;align-items:center;gap:4px;margin-left:6px;">
+        <img src="icons/virtualwarecloud.png" alt="VirtualWareCloud Logo Icon" class="vwc-footer-icon">
+        <span>VirtualWareCloud</span>
+      </a>
+    </div>
+  </footer>
+
+  <!-- ===== JS ===== -->
+  <script>
+    function toggleMenu(){
+      document.getElementById('mobileMenu').classList.toggle('active');
+    }
+    async function sharePage(){
+      const shareData={
+        title:'Seabound Siblings – World’s Toughest Row',
+        text:'Support our journey across the Atlantic!',
+        url:window.location.href
+      };
+      try{
+        if(navigator.share){
+          await navigator.share(shareData);
+        }else{
+          prompt("Copy this link & share it:", window.location.href);
+        }
+      }catch(err){
+        console.error('Share failed:',err);
+      }
+    }
+  </script>
+</body>
+</html>
